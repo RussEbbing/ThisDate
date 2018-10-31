@@ -12,7 +12,7 @@ ThisDate was built on .net Core 2.x, Visual Studio 2017, Resharper, xUnit tested
 
 To install ThisDate, run the following command in the Package Manage Console
 
-	PM> Install-Package ThisDate
+	PM> Install-Package ---nuget not yet defined.
 
 ## Quick Start:
 
