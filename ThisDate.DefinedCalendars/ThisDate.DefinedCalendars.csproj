@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <PackageLicenseUrl>Russell Dion Ebbing (MIT)</PackageLicenseUrl>
+    <AssemblyName>ThisDate.DefinedCalendars</AssemblyName>
+    <RootNamespace>ThisDate.DefinedCalendars</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\ThisDate.DefinedCalendars.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ThisDate\ThisDate.csproj" />
+  </ItemGroup>
+
+</Project>

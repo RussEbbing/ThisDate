@@ -1,0 +1,60 @@
+Welcome to ThisDate
+
+
+Introduction:
+-------------
+
+ThisDate extend DateTime with additional calendar and DateTime methods. Originally this project started as a toolset to build 
+data warehouse date/time dimension tables but it can certainly find uses elsewhere. These are static extension methods and so 
+are easy to use and extends LINQ natively. ThisDate is configurable with dated, yearly, monthly, or weekly calendar 
+events. Can calculate N-Workdays from a date, round Time, IsWorkday, IsWeekend, get holiday on a date, get date for a holiday, 
+isLeapYear, get 3rd Thursday of a November date, and more. For efficacy, most methods calculate without loops when possible. 
+This project is built on .net Core 2.x. Code checked using Resharper and xUnit testing.
+
+
+
+Solution Projects:
+------------------
+
+1) ThisDate						The main API project	
+2) ThisDate.Tests				xUnit testing of ThisDate
+3) ThisDate.DefinedCalendars	Predefined calendars, & template for custom calendars. More calendars planned.
+4) ThisDate.DateTimeDataLayer	Example data warehouse date/time dimension builder
+
+
+Quick code use examples:
+------------------------
+
+Calendars.NewYorkStockExchange();					// Load New York Stock Exchange (NYSE) calendar. 
+var aDate = new DateTime(2018, 5, 30, 21, 44, 50);	// some date
+
+bool isLastday = aDate.IsLastWeekOfMonth();			// True
+bool isWorkday = aDate.IsWorkday();					// True
+bool isDayOff = aDate.IsDayOff();					// False
+int WeekOfYear = aDate.WeekOfYear();				// 22
+int WeekOfMonth = aDate.WeekOfMonth();				// 5
+int quarterNo = aDate.Quarter();					// 2
+bool isWeekend = aDate.IsWeekend();					// False 
+DateTime RoundToMinute = aDate.RoundToMinute();		// 2018/5/1 21:44:50.0 => 2018/5/1 21:45:00.0
+DateTime RoundToHour = aDate.RoundToHour();			// 2018/5/1 21:44:50.0 => 2018/5/1 22:00:00.0
+bool isLastWeek = aDate.IsLastWeekOfMonth();		// True
+DateTime x = aDate.AddWorkdays(30);					// Date 30 working days from aDate, skips holidays, weekends, etc
+List<string> events = aDate.EventsOnDate();			// {}, for this example but could have "Independance Day", "Saturday", etc 
+
+int tuesdaysInMonth = WeeksInMonth(2018, 5, DayOfWeek.Tuesday)					// 5
+DateTime thanksGiving = DayOfWeekMonthForward(2018, 11, DayOfWeek.Thursday, 4); // Thursday, November 22 (2018/11/22)
+List<string> holiday = EventOnDate(new DateTime(2018, 11, 22));					// {"Thanksgiving"}
+
+
+var allDaysInMay = Enumerable.Range(1, DateTime.DaysInMonth(2018, 5)).Select(day => new DateTime(2018, 5, day));
+var allWorkdays = allDaysInMay.Where(d => d.IsWorkday());
+var allDaysOff = allDaysInMay.Where(d => d.IsDayOff());
+
+and more...
+
+
+
+See more documentation available within project document folders, also see xUnit test cases for more code examples.
+
+-Russ Ebbing
+ RussEbbing@gmail.com
