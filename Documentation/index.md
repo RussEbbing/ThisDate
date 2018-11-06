@@ -14,7 +14,13 @@ ThisDate was built on .net Core 2.x, Visual Studio 2017, Resharper, xUnit tested
 
 To install ThisDate, run the following command in the Package Manage Console
 
-	PM> Install-Package ThisDate
+	PM> Nuget package to come soon!
+
+
+## API Documentation
+
+[API Documentation](/documentation/api/ThisDate.html)
+
 
 ## Quick Start:
 
@@ -23,7 +29,7 @@ To install ThisDate, run the following command in the Package Manage Console
 3. Copy/paste the sample code below. 
 4. The sample code loads a a predefined New York Stock Exchange (NYSE) calendar.   
 
-##### Quick Start Code Examples:
+##### Code Examples:
 
 ```
 using System;
@@ -46,24 +52,24 @@ namespace ConsoleApp1
    // some random test date/time.
    var aDate = new DateTime(2018, 5, 31, 21, 44, 50);  
 
-   var isLastday = aDate.IsLastWeekOfMonth(); 					// True
-   var isWorkday = aDate.IsWorkDay();         					// True
-   var isDayOff = aDate.IsDayOff();           					// False
-   var weekOfYear = aDate.WeekOfYear();       					// 22
-   var weekOfMonth = aDate.WeekOfMonth();     					// 5
-   var quarterNo = aDate.Quarter();           					// 2
-   var quarterShort = aDate.QuarterShort();   					// "Q2"
-   var quarterLong = aDate.QuarterLong();     					// "Quarter 2" 
-   var isWeekend = aDate.IsWeekend();         					// False
-   var roundToMinute = aDate.RoundToMinute(); 					// 2018/5/1 21:45:00.0
-   var roundToHour = aDate.RoundToHour();	    					// 2018/5/1 22:00:00.0
-   var isLastWeek = aDate.IsLastWeekOfMonth();					// True
-   var thirtyWorkDaysForward = aDate.AddWorkdays(30);  // Skips holidays, weekends...
-   var thirtyWorkdaysBack = aDate.AddWorkdays(-30);    // 
-   var events = aDate.EventsOnDate(true, true);        // {}, no holidays on this date.
-   var weeks = CalendarDateTime.WeeksInMonth(2018, 5); // 
-   var nyseHolidayNames = CalendarDateTime.KeysEvents; // All the NYSE holidays
-   var isLastDayOfMonth = aDate.IsLastDayOfMonth();    // False
+   var isLastday = aDate.IsLastWeekOfMonth(); 			// True
+   var isWorkday = aDate.IsWorkDay();         			// True
+   var isDayOff = aDate.IsDayOff();           			// False
+   var weekOfYear = aDate.WeekOfYear();       			// 22
+   var weekOfMonth = aDate.WeekOfMonth();     			// 5
+   var quarterNo = aDate.Quarter();           			// 2
+   var quarterShort = aDate.QuarterShort();   			// "Q2"
+   var quarterLong = aDate.QuarterLong();     			// "Quarter 2" 
+   var isWeekend = aDate.IsWeekend();         			// False
+   var roundToMinute = aDate.RoundToMinute(); 			// 2018/5/1 21:45:00.0
+   var roundToHour = aDate.RoundToHour();	    			// 2018/5/1 22:00:00.0
+   var isLastWeek = aDate.IsLastWeekOfMonth();			// True
+   var thirtyWorkDaysForward = aDate.AddWorkdays(30);   // Skips holidays, weekends...
+   var thirtyWorkdaysBack = aDate.AddWorkdays(-30);     // 
+   var events = aDate.EventsOnDate(true, true);         // {}, no holidays on this date.
+   var weeks = CalendarDateTime.WeeksInMonth(2018, 5);  // 
+   var nyseHolidayNames = CalendarDateTime.KeysEvents;  // All the NYSE holidays
+   var isLastDayOfMonth = aDate.IsLastDayOfMonth();     // False
    
    // "Martin Luther King Day"
    var h = HolidayNames.MartinLutherKingText.EventDatesBetween(2010, 2020);
@@ -136,6 +142,9 @@ namespace ConsoleApp1
 
 
 ## Working with ThisDate
+
+[API Documentation]: /api/ThisDate.CalendarDateTime.html
+
 
 ##### Conventions/calling methods
 
@@ -286,7 +295,8 @@ namespace ThisDate.DefinedCalendars.USA
 		public static void MartinLutherKingDay(bool dayOff)
 		{
 			var start = new DateTime(1986, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.MartinLutherKingText, 																		dayOff, 1, 3, DayOfWeek.Monday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
+													HolidayNames.MartinLutherKingText, 																										dayOff, 1, 3, DayOfWeek.Monday, start);
 		}
 
 		public static void MemorialDay(bool dayOff)
@@ -369,7 +379,7 @@ namespace ConsoleApp1
 
 
 
-#### Configuration Convention
+##### Configuration Convention
 
 All of the configuration methods start as Add-xxxx-Event(parameters) pattern. 
 
@@ -711,14 +721,11 @@ int WeeksInMonth(this DateTime date)
 ```
 
 
-
 ## Source Code
 
 The source code is available on GitHub. The solution includes a project for building date/time dimension tables, additional documentation, and xUint testing, templates for building custom calendar.. 
+GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
 
-
-
-GitHub Address:   xxxxxxxxxxxxxxx
 
 ## Built With
 

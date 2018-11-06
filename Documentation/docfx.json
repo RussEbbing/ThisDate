@@ -45,7 +45,7 @@
     ],
     "template": [
       "default",
-      "C:\\BitBucket\\ThisDate\\Documentation\\templates\\site"
+      "templates\\site"
     ],
     "resource": [
       {
