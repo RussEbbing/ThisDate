@@ -24,6 +24,15 @@ To install ThisDate, run the following command in the Package Manage Console
     [Main API CalendarDateTime](api/ThisDate.html)
 
 
+## Source Code
+
+The source code is available on GitHub. 
+GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
+
+The solution includes a project for building date/time dimension tables, additional documentation, 
+and xUint testing. 
+
+
 
 ## Quick Start:
 
@@ -148,39 +157,47 @@ namespace ConsoleApp1
 ## Working with ThisDate
 
 
-##### Conventions/calling methods
+##### Conventions and calling methods
 
-1) Other than configuration, all methods are static extension methods, LINQ compatible. Only calendar related methods will require a defined calendar. There are a few predefined calendars but mostly these serve as templates for building a custom calendar and testing.    
+Other than configuration all methods are static LINQ frendly extension methods.
+
 
 ```
-// A typical method
+// A typical method signature
 var IsWorkDay(this dateTime) ;	// The 'this' identifies extension method. 
 ```
 
-Extension methods can be called in the following ways:
-
-```
+// Extension methods can be called in the following ways:
 var date = new DateTime.Now; 		// Some random date
 var result1 = IsWorkDate(date);  
 var result2 = date.IsWorkDate();
 
-// Using LINQ, all work days from a list.
+// Using LINQ to get all work days in a list.
 var allWorkDays = DatesList.Where(s => s.IsWorkDate());
-
 ```
+
+
+
 
 ### Configuration
 
-Methods not related to a calendar require no configuration while calendar methods depend on a calendar definition. ThisDate comes with a few US Government and the New York Stock Exchange (NYSE) calendars, others may be added however most will need to need to build a custom configuration. 
+Only methods related to a calendar depend on a calendar defintion. ThisDate comes with a few prebuilt calendards 
+such as, the New York Stock Exchange (NYSE) calendar, a few USA federal calendars. A few more
+calendars for Canada, Mexico, India are planned however no amount of hardcodded calendars will ever
+capture every requirement. The prebuilt calendars are provided as templates and to prove out ThisDate
+configuration code.
 
 
 
-### Configuration Pattern Template
+#### Configuration Pattern Template
 
-    Note: This is a recommened pattern is not the only sollution.  
+    Note: This is a recommened pattern however is not the only solution.  
 
 
 ##### Define a literal string class (optional but recommended)
+
+    Note: Although not required, it's good practice to avoid literal "text" strings to avoid sneaky 
+          typos and better enable the editor tool.
 
 ```
 namespace ThisDate.DefinedCalendars.USA
@@ -208,133 +225,144 @@ namespace ThisDate.DefinedCalendars.USA
 		public static string WeekendText => "Weekend";
 	}
 }
-
-// Although not required, its good practice to avoid literal "text" literal strings to avoid sneaky typos and allow edtor tools to help more.
 ```
 
 
 
 ##### Define the event (holiday) definitions (USA in this example):
 
+This is likely the most complicated step. Define all of the possible events that related calendars
+may need. In this exaple, all of the USA holidays are defined. The final calendar definition class
+will group these into one calendar later. You will need to refer to futher documentations below
+and API documentations for more details.
+
+
 ```
 using System;
 
 namespace ThisDate.DefinedCalendars.USA
 {
-    // This is likely the most complicated step. Define all of the possible events that calendars need. 
-    // There will be one more class which will use this class to build a calendar. A calendar may be 
-    // the New York Stock Exchange (NYSE) calendar, the USA Government calendar, whatever else. More 
-    // details in follows below and in the API documentations.
-    //  
-    // Define an all-events class:
-
-    public static class Holidays
+	public static class Holidays
 	{
-		public static void ChristmasDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		public static void ChristmasDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ChristmasDayText, dayOff, 12, 																						25, saturdayBack, sundayForward);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ChristmasDayText, dayOff, 12, 25, saturdayBack, sundayForward);
 		}
 
 		public static void ColumbusDay(bool dayOff)
 		{
-			var start = new DateTime(1492, 1, 1);   // Columbus Day start date.
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ColumbusDayText, 																							dayOff, 10, 2, DayOfWeek.Monday, start);
+			var start = new DateTime(1492, 1, 1);       // start is when the holiday starts.
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ColumbusDayText, dayOff, 10, 2, 
+                                                           DayOfWeek.Monday, start);
 		}
 
 		public static void EasterSunday(bool dayOff)
 		{
-			var start = new DateTime(30, 1, 1);     // Scholars believe this is the start date.
-			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, dayOff, 																									start);
+			var start = new DateTime(30, 1, 1); // Seems many believe the year was either 30 or 33.
+			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, dayOff, start);
 		}
 
 		public static void FathersDay(bool dayOff)
 		{
 			var start = new DateTime(1910, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.FathersDayText, 																					dayOff, 6, 3, DayOfWeek.Sunday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.FathersDayText, dayOff, 6, 3, 
+                                                           DayOfWeek.Sunday, start);
 		}
 
 		public static void GoodFriday(bool dayOff)
 		{
-			var start = new DateTime(30, 1, 1); 
-			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.GoodFridayText, dayOff, 																									start);
+			var start = new DateTime(30, 1, 1); // Seems many believe the year was either 30 or 33.
+			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.GoodFridayText, dayOff, start);
 		}
 
 		public static void GroundhogDay(bool dayOff)
 		{
 			var start = new DateTime(1887, 1, 1);
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.GroundHogDayText, dayOff, 2, 2, 																						false, false, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.GroundHogDayText, dayOff, 2, 2, false, 
+                                               false, start);
 		}
 
 		public static void Halloween(bool dayOff)
 		{
 			var start = new DateTime(1850, 1, 1);   // Seems no official start year
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.HalloweenText, dayOff, 10, 31, 																					false, false, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.HalloweenText, dayOff, 10, 31, false, 
+                                               false, start);
 		}
 
-		public static void IndependenceDay(bool saturdayBack, bool sundayForward, bool 																						dayOff)
+		public static void IndependenceDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			var start = new DateTime(1776, 1, 1);   // Seems no official start year
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.IndependentsDayText, dayOff, 7, 																						4, saturdayBack, sundayForward, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.IndependentsDayText, dayOff, 7, 4, 
+                                               saturdayBack, sundayForward, start);
 		}
 
 		public static void LaborDay(bool dayOff)
 		{
 			var start = new DateTime(1894, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.LaborDayText, 																									dayOff, 9, 1, DayOfWeek.Monday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.LaborDayText, dayOff, 9, 1, 
+                                                           DayOfWeek.Monday, start);
 		}
 
 		public static void MartinLutherKingDay(bool dayOff)
 		{
 			var start = new DateTime(1986, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
-													HolidayNames.MartinLutherKingText, 																										dayOff, 1, 3, DayOfWeek.Monday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.MartinLutherKingText, dayOff, 1, 3, 
+                                                           DayOfWeek.Monday, start);
 		}
 
 		public static void MemorialDay(bool dayOff)
 		{
 			var startDate = new DateTime(1868, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekReverseEvent(HolidayNames.MemorialDayText, 																		dayOff, 5, 1, DayOfWeek.Monday, startDate);
+			CalendarDateTime.AddYearlyDayOfWeekReverseEvent(HolidayNames.MemorialDayText, dayOff, 5, 1, 
+                                                           DayOfWeek.Monday, startDate);
 		}
 
 		public static void MothersDay(bool dayOff)
 		{
 			var start = new DateTime(1914, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.MothersDayText, 																					dayOff, 5, 2, DayOfWeek.Sunday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.MothersDayText, dayOff, 5, 2, 
+                                                           DayOfWeek.Sunday, start);
 		}
 
-		public static void NewYearsDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		public static void NewYearsDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, dayOff, 1, 1, 																	saturdayBack, sundayForward);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, dayOff, 1, 1, 
+                                               saturdayBack, sundayForward);
 		}
 
 		public static void PresidentsDay(bool dayOff)
 		{
 			var start = new DateTime(1971, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.PresidentsDayText, 																		dayOff, 2, 3, DayOfWeek.Monday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.PresidentsDayText, dayOff, 2, 3, 
+                                                           DayOfWeek.Monday, start);
 		}
 
 		public static void SaintPatrickDay(bool dayOff)
 		{
 			var start = new DateTime(1762, 1, 1);
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.SaintPatrickDayText, dayOff, 3, 																		17, false, false, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.SaintPatrickDayText, dayOff, 3, 17, false, 
+                                               false, start);
 		}
 
 		public static void ThanksgivingDay(bool dayOff)
 		{
 			var start = new DateTime(1619, 1, 1);   // No exact year, 1621, 1619 comes up.
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ThanksgivingDayText, 																dayOff, 11, 4, DayOfWeek.Thursday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ThanksgivingDayText, dayOff, 11, 
+                                                           4, DayOfWeek.Thursday, start);
 		}
 
 		public static void ValentinesDay(bool dayOff)
 		{
 			var start = new DateTime(300, 1, 1);
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ValentinesDayText, dayOff, 2, 																			14, false, false, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ValentinesDayText, dayOff, 2, 14, false, 
+                                              false, start);
 		}
 
-		public static void VeteransDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		public static void VeteransDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			var start = new DateTime(1954, 1, 1);
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.VeteransDayText, dayOff, 11, 11, 																	saturdayBack, sundayForward, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.VeteransDayText, dayOff, 11, 11, 
+                                               saturdayBack, sundayForward, start);
 		}
 
 		public static void Weekends()
@@ -355,17 +383,22 @@ namespace ThisDate.DefinedCalendars.USA
 
 ##### Calendar Definition:
 
-```
-	// Now define the calendars. The New York Stock Exchange (NYSE), the USA Federal calendar, 
-    // and all observed calendar. Whatever your requirements need. These calendars are included in the API.
+The final step is group the holiday definitions above to build a calendar. Examples below build the 
+New York Stock Exchange (NYSE), a US Federal calendar, and a US observed holiday calendar. If if so 
+happens these calendars is what you need your in luck, they are included.
+
   
-    public static class Calendars
+
+```
+namespace ThisDate.DefinedCalendars.USA
+{
+	public static class Calendars
 	{
 		public static void NewYorkStockExchange()
 		{
-			Holidays.NewYearsDay(false, true, true);    // (!saturdayBack, sundayForward, isWorkday)
-			Holidays.MartinLutherKingDay(true);         // (isWorkday)
-			Holidays.PresidentsDay(true);               
+			Holidays.NewYearsDay(true, false, true);
+			Holidays.MartinLutherKingDay(true);
+			Holidays.PresidentsDay(true);
 			Holidays.GoodFriday(true);
 			Holidays.MemorialDay(true);
 			Holidays.IndependenceDay(true, true, true);
@@ -377,7 +410,7 @@ namespace ThisDate.DefinedCalendars.USA
 
 		public static void UsaFederal()
 		{
-			Holidays.NewYearsDay(false, true, true);
+			Holidays.NewYearsDay(true, false, true);
 			Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.MemorialDay(true);
@@ -392,14 +425,14 @@ namespace ThisDate.DefinedCalendars.USA
 
 		public static void UsaObservance()
 		{
-			Holidays.NewYearsDay(false, true, true);
+			Holidays.NewYearsDay(true, false, true);
 			Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.MemorialDay(true);
 			Holidays.IndependenceDay(true, true, true);
 			Holidays.LaborDay(true);
 			Holidays.ColumbusDay(false);
-			Holidays.VeteransDay(true, true, false);
+			Holidays.VeteransDay(false, true, true);
 			Holidays.ThanksgivingDay(true);
 			Holidays.ChristmasDay(true, true, true);
 			Holidays.Weekends();
@@ -414,11 +447,12 @@ namespace ThisDate.DefinedCalendars.USA
 			Holidays.SaintPatrickDay(false);
 		}
 	}
+}
 ```
 
 
 
-##### How to use the calendar in code.
+##### Using the calendar in your APP code.
 
 ```
 namespace ConsoleApp1
@@ -427,34 +461,34 @@ namespace ConsoleApp1
  	{
   	private static void Main()
   	{
-    	ThisDate.DefinedCalendars.USA.Calendars.NewYorkStockExchange();
-			var h = HolidayNames.MartinLutherKingText.EventDatesBetween(2010, 2020);
-			...
-		}
+    	ThisDate.DefinedCalendars.USA.Calendars.NewYorkStockExchange();     // declare the calendar to use.
+		var MartenLutherKingDatesBetweenYears = HolidayNames.MartinLutherKingText.EventDatesBetween(2010, 2020);
+	}
   }
 }
 ```
 
 
 
-##### Configuration Conventions
+### Configuration Conventions
 
-All of the configuration methods are patterned as Add-____-Event(parameters). 
+All of the configuration methods are patterned as Add____Event(parameters). 
 
 Generally the parameters follow this sequence:
 
 ```
-string eventName - Required, event name, must be unique, case insentive.
-bool isDayOff - true if is a day off, false if is a workday.
+string eventName    - Required, event name, must be unique, case insentive.
+bool isDayOff       - true if is a day off, false if is a workday.
 DateTime? startDate - optional start date, if null, DateTime.MinValue.
-DateTime? endDate - optional end date, if null, DateTime.MaxValue.
+DateTime? endDate   - optional end date, if null, DateTime.MaxValue.
 ```
 
 
 
-##### Add Dated Events (specific single date events)
+#### Add Dated Events (specific single date events)
 
-Events that occur on a certain date.
+Events that occur on a specific date, occures only once. Example: Grand opening day, Octobor 1, 2018.
+
 
 ```
 AddDateEvent(string eventName, bool dayOff, DateTime date)
@@ -476,15 +510,12 @@ Events that repeat every month on some pattern.
 Events that occur on certain date of every month.
 
 ```
-AddMonthlyDateEvent(string eventName, bool dayOff, int monthDay, 
-									DateTime? startDate = null, DateTime? endDate = null)
-	
- // where: monthDay = the specific date each month. 
+AddMonthlyDateEvent(string eventName, bool dayOff, int monthDay, DateTime? startDate = null, DateTime? endDate = null)
+// where: monthDay = the month date. 
 
 ```
 // Example: Rent is due on the 15th of every month.
-AddMonthlyDateEvent("Rent Due", 15, startDate); // Note, end date is null, 					                                                   // DateTime.MaxValue
-
+AddMonthlyDateEvent("Rent Due", 15, startDate); // Note, end date is null and goes on forever. 					                                                   // DateTime.MaxValue
 ```
 
 
@@ -494,23 +525,24 @@ AddMonthlyDateEvent("Rent Due", 15, startDate); // Note, end date is null, 					
 Event that occurs on the last day of a month.
 
 ```
-AddMonthlyLastDayEvent(string eventName, bool dayOff, 
-											 DateTime? startDate = null, DateTime? endDate = null)
+AddMonthlyLastDayEvent(string eventName, bool dayOff, DateTime? startDate = null, DateTime? endDate = null)
 ```
 
 
 
 ##### Add Yearly nth Day-Of-Week Events (Forward and Reverse)
 
-These are events that occur on some Day-of-Week interval every year. US Thanksgiving for example occurs on the third Thursday in November. There are two versions, Forward and Reverse. Forward counts from the start of the month, reverse counts from the end of the month. US Labor Day is the last Monday of the month.
+These are events that occur on some Day-of-Week interval every year. US Thanksgiving for example occurs on the 
+third Thursday in November. There are two versions, Forward and Reverse. Forward counts from the start of the month, 
+reverse counts from the end of the month. US Memorial is example where reverse is used. This holiday is on the 
+last Monday in May.
+
 
 ```
 AddYearlyDayOfWeekForwardEvent(string eventName, bool dayOff, int month, 
 					int weeksForward, DayOfWeek dayOfWeek, 
 					DateTime? startDate = null, DateTime? endDate = null)
-```
 
-```
 AddMonthlyDayOfWeekReverseEvent(string eventName, bool dayOff, int month, 
 					int weeksForward, DayOfWeek dayOfWeek, 
 					DateTime? startDate = null, DateTime? endDate = null)
@@ -520,26 +552,24 @@ AddMonthlyDayOfWeekReverseEvent(string eventName, bool dayOff, int month,
 // Martin Luther King day occurs on the third Monday in January, which
 // began in 1986. This example uses the text helper class menstioned above 
 // (HolidayNames.MartinLutherKingText = "Martin Luther King Day")
-```
 
-	// month = 1 (January), DayOfWeek.Monday, 3rd week...
-	var start = new DateTime(1986, 1, 1); 
-	CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
-									HolidayNames.MartinLutherKingText, // "Martin Luther King Day"
-	                true,															 // as day off 
-	                1,																 // Month = January
-	                3,																 // Third Monday of the month.
-	                DayOfWeek.Monday,									 // Day of week (Monday)
-	                start															 // Starting date, 1/1/1986
-	                                                   // null defaults as DateTime.MaxVlue 
+// month = 1 (January), DayOfWeek.Monday, 3rd week.
+var start = new DateTime(1986, 1, 1); 
+CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
+        HolidayNames.MartinLutherKingText,  // "Martin Luther King Day"
+        true,								     // as day off 
+        1,									     // Month = January
+        3,									     // Third Monday of the month.
+	    DayOfWeek.Monday,                   // Day of week (Monday)
+	    start								     // Starting date, 1/1/1986
+	                                        // null defaults as DateTime.MaxVlue 
 	                );
 
-```
+
 // US Memorial day occurs on the last Monday in May staring in 1868.
 var startDate = new DateTime(1868, 1, 1);
 CalendarDateTime.AddYearlyDayOfWeekReverseEvent(HolidayNames.MemorialDayText, true
 													, 5, 1, DayOfWeek.Monday, startDate); 
-
 ```
 
 
@@ -553,56 +583,53 @@ These methods add weekly occurrences to some pattern.
 
 This occurs on interval, independent of the month. Example: Typically payday is every two weeks, some months payday may occur three times in a month. 
 
+
 ```
 AddWeeklyEvent(string eventName, bool dayOff, IEnumerable<DayOfWeek> daysOfWeek,
 							 DateTime? seedWeek = null, int interval = 1,  
 							 DateTime? startDate = null, DateTime? endDate = null)
-
 
 Where:
 	daysOfWeek:	list or array of days-of-week. Could be every Tuesday and Thursday...
 	seedWeek:		First week the event starts, interval takes effect from this date.
 	Interval:		1 = every week, 2 is every 2 weeks, 3 = every 3 weeks... 
 
-Example:
-```
 
+```
 	// Saturdays and Sundays off every week 
 	var daysOfWeeks = new List<DayOfWeek> { DayOfWeek.Saturday, DayOfWeek.Sunday};
 	CalendarDateTime.AddWeeklyEvent(HolidayNames.WeekendText, true, daysOfWeeks);
-
 
 ​	
 ​	// Example using the seed date and interval.
 ​	// Every other week (every 2 weeks), 
 ​	// 			on Tuesdays & Thursdays, 
-​	//			seed date 2018/10/7, 
+​	//			seed A date 2018/10/7 as the first occurance, 
 ​	// 			Between October 1 and throgh and end of November 31.
 ​	
-​	var daysOfWeek = new List<DayOfWeek> {DayOfWeek.Tuesday, DayOfWeek.Thursday};
+var daysOfWeek = new List<DayOfWeek> {DayOfWeek.Tuesday, DayOfWeek.Thursday};
 ​	var firstSeedWeek = new DateTime (2018, 10, 7);
 ​	var start = new DateTime(2018, 10, 7);
 ​	var end = new DateTime(2018, 11, 31);
 ​	int interval = 2; // every two weeks.
 ​	
-​	CalendarDateTime.AddWeeklyEvent("EventName", false, daysOfWeek, 
-​																	firstSeedWeek, interval, start, end);
+​	CalendarDateTime.AddWeeklyEvent("EventName", false, daysOfWeek, firstSeedWeek, interval, start, end);
 
 
 
 ##### Add in month, weekly event that occurs on a day-of-week on interval
 
-This occurs on interval within a month. Example: A book club might meet on the second and forth Monday every month (event though some months may have 4 or 5 weeks.)
+This occurs on interval within a month. Example: A book club might meet on the second and forth Monday every month 
+(some months may have 4 or 5 weeks.)
 
 ```
 AddWeeklyInMonthEvent(string eventName, bool dayOff, DayOfWeek dayOfWeek, 
 											IEnumerable<int> weekIntervals = null, 
 											DateTime? startDate = null, DateTime? endDate = null)
 											
-// Say a gold date every Monday, first and third week every month.
+// Say a biweekly date every Monday, first and third week every month.
 var weekIntervals = new List<int> {1, 3};
 CalendarDateTime.AddWeeklyInMonthEvent("Monday biweekly", false, DayOfWeek.Monday, 																						weekIntervals, start, end);
-											
 ```
 
 
@@ -610,10 +637,13 @@ CalendarDateTime.AddWeeklyInMonthEvent("Monday biweekly", false, DayOfWeek.Monda
 #### Add Yearly Events
 
 
-##### Add Easter Sunday/Good Friday (calculated events)
+
+##### Add Easter Sunday/Good Friday (calculated events, Easter/Good Friday)
+
 
 ```
-public static void AddYearlyCalculatedEvent([CanBeNull] string eventName, bool dayOff, 																	DateTime? startDate = null, DateTime? endDate = null)
+public static void AddYearlyCalculatedEvent(string eventName, bool dayOff, 	
+    											  DateTime? startDate = null, DateTime? endDate = null)
 
 where: eventName = "Easter Sunday" or "Good Friday"
 
@@ -627,7 +657,8 @@ CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, true, s
 ##### Add Yearly Events
 
 
-Events that occur every year. There are options to shift the celebration date from Saturday to Friday or shift Sunday to Monday.
+Events that occur every year. There are options to shift the celebration date from Saturday back to Friday and 
+shift Sunday forward to Monday. Often, New Years Day is celbrated on Monday if it lands on Sunday.
 
 ```
 AddYearlyDateEvent([CanBeNull] string eventName, bool dayOff, int month, int day, 
@@ -637,23 +668,28 @@ AddYearlyDateEvent([CanBeNull] string eventName, bool dayOff, int month, int day
 Where:
 saturdayBack	if true, if the event lands on Saturday celebration on Friday
 sundayForward	if true, if the event lands on Sunday celebrate on Monday.
+startDate defaults as Datetime.MinValue
+endDate defaults as DateTume.MaxValue
+
 
 Example:
-Many companies in the US take Monday off if New Years day is on Sunday because everybody is too hung over to work.
+Many companies in the US take Monday off if New Years day is on Sunday because everybody 
+is too hung over to work.
+
 
 var saturdayBack = false;
 var sundayForward = true;
-CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, true, 1, 1, 																						saturdayBack, sundayForward);
-
+CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, true, 1, 1, saturdayBack, sundayForward);
 ```
 
 
 
 #### Collections Methods
 
-```
-Internally ThisDate builds on a set of dictionaries. The following are collection related methods.
+Internally ThisDate builds on a set of dictionaries. These methods pull dictionary data.
 
+
+```
 int CountDateEvents 
 int CountEvents
 int CountMonthlyEvents
@@ -687,87 +723,111 @@ The following are the 'core' methods. See API documentation for further details.
 // This method depends on a calendar.
 DateTime AddWorkdays(this DateTime date, int days)
 
+
 // Convert date to yyyyMMdd format. Often used as a date dimension key.
 int DateId(this DateTime date);
+
 
 // Returns the day-of-week count in month. Example: Feb 12, 2019 is the second
 // Tuesday of the month, this date will return 2.
 int DayOfWeekCountInMonth(this DateTime date)
 
+
 // Returns the day-of-week count from the start of the year. Example: Feb 4, 2019 
 // is 5 Mondays into the year and Feb 5, 2019 is 6 Tuesdays into the year.
 int DayOfWeekCountInYear(this DateTime date)
+
 
 // Returns date, on nth day-of-week, of month, and year, from the start of the month.
 // Example, 2nd Monday.
 DateTime DayOfWeekMonthForward(int year, int month, DayOfWeek dayOfWeek, 
                                int weeksForward)
 
+
 // Returns date, on nth day-of-week, of month, and year, from the end of the month.
 // Example, Last Tuesday of the month.
 DateTime DayOfWeekMonthReverse(int year, int month, DayOfWeek dayOfWeek, 
                                nt weeksReverse)
+
 
 // Shift to target day-of-week from date within the week.
 // Example, if Date is on Tuesday, shift date to Sunday of the same week (-2 days).
 // if date is Tuesday, shift to Saturday is +4 days.
 DateTime DayOfWeekShift(this DateTime date, DayOfWeek target)
 
+
 // Returns list of all events on a date.
 ImmutableArray<string> EventsOnDate(this DateTime date, bool includeWorkdays, 
                                     bool includeDaysOff)
+
 
 // True is date is between date range (date1, date2).
 // date1 <= date <= date2, or date1 >= date >= date2. 
 bool IsBetweenEqual(this DateTime date, DateTime date1, DateTime date2)
 
+
 // True if a date is a day off in the calendar.
 bool IsDayOff(this DateTime date)
+
 
 // date is on the first, Day == 1. Trivial, privided for consistency.
 bool IsFirstDayOfMonth(this DateTime date)
 
+
 // Date is in the first week of the month.
 bool IsFirstWeekOfMonth(this DateTime date)
+
 
 // Date is the last day of the month
 // return date == new DateTime(date.year, date.month, 1).AddMonths(1).AddDays(-1);
 bool IsLastDayOfMonth(this DateTime date)
 
+
 bool IsLastWeekOfMonth(this DateTime date)
+
 
 bool IsLeapYear(this int year)
 bool IsLeapYear(this DateTime date)
 
+
 // Example: true if the date is the 3rd Monday of the month. 
 bool IsNthDayOfWeek(this DateTime date, int weekNumber, DayOfWeek dayOfWeek)
+
 
 bool IsWeekDay(this DateTime date)
 bool IsWeekend(this DateTime date)
 
+
 // true is date is a workday in the calendar.
 bool IsWorkDay(this DateTime date)
+
 
 // Get the last day of month.
 // return new DateTime(year, month, 1).AddMonths(1).AddDays(-1)
 DateTime LastDateOfMonth(int year, int month)
 
+
 // Get the last day of month.
 // return new DateTime(date.year, date.month, 1).AddMonths(1).AddDays(-1)
 DateTime LastDateOfMonth(this DateTime date)
 
+
 // Date quater, 1, 2, 3, or 4.
 int Quarter(this DateTime date)
+
 
 string QuarterLong(this DateTime date)	// "Quarter 1", "Quarter 2"...
 string QuarterShort(this DateTime date)	// "Q1", "Q2"...
 
+
 DateTime RoundToHour(this DateTime date)
+
 
 // Time rounding functions.
 DateTime RoundToInterval(this DateTime date, TimeSpan interval)
 DateTime RoundToMinute(this DateTime date)
 DateTime RoundToSecond(this DateTime date)
+
 
 // Time ID functions. Generally used for Time Dimension table Keys.
 string TimeId(this DateTime date)
@@ -776,14 +836,18 @@ string TimeIdToInterval(this DateTime date, TimeSpan interval)
 string TimeIdToMinute(this DateTime date)
 string TimeIdToSecond(this DateTime date)
 
+
 // Adjust date back to Friday if Saturday, forward to Monday if Sunday.
 DateTime WeekendAdjustDate(this DateTime date, bool saturdaysBack, bool sundaysForward)
+
 
 // returns the date week number of the month
 int WeekOfMonth(this DateTime dateTime)
 
+
 // return the date week of year.
 int WeekOfYear(this DateTime dateTime)
+
 
 // return week number of month
 int WeeksInMonth(int year, int month)
@@ -792,14 +856,8 @@ int WeeksInMonth(this DateTime date)
 
 
 
-## Source Code
 
-The source code is available on GitHub. The solution includes a project for building date/time dimension tables, additional documentation, and xUint testing, templates for building custom calendar.. 
-GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
-
-
-
-## Built With
+## This API is built With the following technologies
 
 - Visual Studio 2017, .net Core 2.x
 - Resharper
@@ -807,16 +865,19 @@ GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
 - Atomineer
 - DocFx
 
+The source code for building a Date/Time data warehouse data table.
+- Entity Framework Core
+
 
 
 ## Author
 
 - **Russell D Ebbing** - RussEbbing@gmail.com 
+- 
 
 
 
 ## License
 
 MIT License
-
 Copyright (c) 2018 Russell Dion Ebbing (RussEbbing@gmail.com)
