@@ -1,0 +1,214 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/GitHub/ThisDate/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "source_relative_path": "Images/Clock500x500.png",
+      "output": {
+        "resource": {
+          "relative_path": "Images/Clock500x500.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "Images/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Images/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "Images/logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.CalculatedEventsText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.CalculatedEventsText.html",
+          "hash": "Yf1XVdv39BQCKTee6ef+ZA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.CalendarDateTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.CalendarDateTime.html",
+          "hash": "ruWZfPsVTiGawyFCdtJHFg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.Calendars.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.DefinedCalendars.USA.Calendars.html",
+          "hash": "Q70YmzxVdUaXnTHAAUwqrQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.HolidayNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.DefinedCalendars.USA.HolidayNames.html",
+          "hash": "g6UAOLb0sOGKX2/ObOUu7A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.Holidays.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.DefinedCalendars.USA.Holidays.html",
+          "hash": "rmlEHPSxplTOTdhLpH9Eag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.DefinedCalendars.USA.html",
+          "hash": "qR88hr4Pi+WCmMFpG2QP1Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ThisDate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ThisDate.html",
+          "hash": "T1CZJVkQf7DBUXUsyAn0CA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "dIiff6qp0XMeM61LLXxMvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "4g0hZ6LnhOQ2ZcdYx2vA3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "H+XA2Z70OpIOKIE0eZSfog=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "zY1V+pupLZozODrXqPhyFw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
