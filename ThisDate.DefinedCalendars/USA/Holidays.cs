@@ -5,21 +5,19 @@ namespace ThisDate.DefinedCalendars.USA
 	/// <summary>	USA calendar configuration. </summary>
 	public static class Holidays
 	{
-		///-------------------------------------------------------------------------------------------------
-		/// <summary>	Add Christmas Day. </summary>
-		///
+		/// -------------------------------------------------------------------------------------------------
+		///  <summary>	Add Christmas Day. </summary>
+		/// <param name="dayOff">			Day off (not a workday). </param>
 		/// <param name="saturdayBack"> 	If the date is Saturday then observe on Friday. </param>
 		/// <param name="sundayForward">	If the date is Sunday then observe on Monday. </param>
-		/// <param name="dayOff">			Day off (not a workday). </param>
-		///
 		/// <example>
-		/// 	<code>
-		/// 	// using ThisDate.DefinedCalendars.USA;
-		/// 	Holiday.ChristmasDay(false, true, true);
-		/// 	</code>
-		/// </example>
-		///-------------------------------------------------------------------------------------------------
-		public static void ChristmasDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		///  	<code>
+		///  	// using ThisDate.DefinedCalendars.USA;
+		///  	Holiday.ChristmasDay(false, true, true);
+		///  	</code>
+		///  </example>
+		/// -------------------------------------------------------------------------------------------------
+		public static void ChristmasDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ChristmasDayText, dayOff, 12, 25, saturdayBack, sundayForward);
 		}
@@ -132,21 +130,19 @@ namespace ThisDate.DefinedCalendars.USA
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.HalloweenText, dayOff, 10, 31, false, false, start);
 		}
 
-		///-------------------------------------------------------------------------------------------------
-		/// <summary>	Add Independence Day (4th of July). </summary>
-		///
+		/// -------------------------------------------------------------------------------------------------
+		///  <summary>	Add Independence Day (4th of July). </summary>
+		/// <param name="dayOff">			Day off (not a workday). </param>
 		/// <param name="saturdayBack"> 	If the date is Saturday observe on Friday. </param>
 		/// <param name="sundayForward">	if the date is on Sunday observe on Monday. </param>
-		/// <param name="dayOff">			Day off (not a workday). </param>
-		///
 		/// <example>
-		/// 	<code>
-		/// 	// using ThisDate.DefinedCalendars.USA;
-		/// 	CalendarDateTime.Halloween(true);
-		/// 	</code>
-		/// </example>
-		///-------------------------------------------------------------------------------------------------
-		public static void IndependenceDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		///  	<code>
+		///  	// using ThisDate.DefinedCalendars.USA;
+		///  	CalendarDateTime.Halloween(true);
+		///  	</code>
+		///  </example>
+		/// -------------------------------------------------------------------------------------------------
+		public static void IndependenceDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			var start = new DateTime(1776, 1, 1);   // Seems no official start year
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.IndependentsDayText, dayOff, 7, 4, saturdayBack, sundayForward, start);
@@ -224,21 +220,19 @@ namespace ThisDate.DefinedCalendars.USA
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.MothersDayText, dayOff, 5, 2, DayOfWeek.Sunday, start);
 		}
 
-		///-------------------------------------------------------------------------------------------------
-		/// <summary>	Adds the new years day. </summary>
-		///
+		/// -------------------------------------------------------------------------------------------------
+		///  <summary>	Adds the new years day. </summary>
+		/// <param name="dayOff">			Day off (not a workday). </param>
 		/// <param name="saturdayBack"> 	If date falls on Saturday then observe Friday. </param>
 		/// <param name="sundayForward">	If date falls on Sunday then observe on Monday. </param>
-		/// <param name="dayOff">			Day off (not a workday). </param>
-		///
 		/// <example>
-		/// 	<code>
-		/// 	// using ThisDate.DefinedCalendars.USA;
-		/// 	CalendarDateTime.NewYearsDay(true);
-		/// 	</code>
-		/// </example>
-		///-------------------------------------------------------------------------------------------------
-		public static void NewYearsDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		///  	<code>
+		///  	// using ThisDate.DefinedCalendars.USA;
+		///  	CalendarDateTime.NewYearsDay(true);
+		///  	</code>
+		///  </example>
+		/// -------------------------------------------------------------------------------------------------
+		public static void NewYearsDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, dayOff, 1, 1, saturdayBack, sundayForward);
 		}
@@ -315,21 +309,19 @@ namespace ThisDate.DefinedCalendars.USA
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ValentinesDayText, dayOff, 2, 14, false, false, start);
 		}
 
-		///-------------------------------------------------------------------------------------------------
-		/// <summary>	Add Veterans Day, November 11. </summary>
-		///
+		/// -------------------------------------------------------------------------------------------------
+		///  <summary>	Add Veterans Day, November 11. </summary>
+		/// <param name="dayOff">			Day off (not a workday). </param>
 		/// <param name="saturdayBack"> 	Move back to Friday if on Saturday. </param>
 		/// <param name="sundayForward">	Move forward to Monday if on Sunday. </param>
-		/// <param name="dayOff">			Day off (not a workday). </param>
-		///
 		/// <example>
-		/// 	<code>
-		/// 	// using ThisDate.DefinedCalendars.USA;
-		/// 	CalendarDateTime.VeteransDay(false);
-		/// 	</code>
-		/// </example>
-		///-------------------------------------------------------------------------------------------------
-		public static void VeteransDay(bool saturdayBack, bool sundayForward, bool dayOff)
+		///  	<code>
+		///  	// using ThisDate.DefinedCalendars.USA;
+		///  	CalendarDateTime.VeteransDay(false);
+		///  	</code>
+		///  </example>
+		/// -------------------------------------------------------------------------------------------------
+		public static void VeteransDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			var start = new DateTime(1954, 1, 1);
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.VeteransDayText, dayOff, 11, 11, saturdayBack, sundayForward, start);

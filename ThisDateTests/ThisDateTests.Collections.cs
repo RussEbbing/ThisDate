@@ -262,7 +262,7 @@ namespace ThisDate.Tests
 		public void EventDatesBetweenSwap()
 		{
 			CalendarDateTime.ClearCalendar();
-			Holidays.NewYearsDay(false, false, true);
+			Holidays.NewYearsDay(true, false, false);
 			var expected = Enumerable.Range(_startTestDate.Year, _endTestDate.Year - _startTestDate.Year + 1).Select(s => new DateTime(s, 1, 1));
 			var actual = HolidayNames.NewYearsDayText.EventDatesBetween(_endTestDate.Year, _startTestDate.Year);
 			Assert.Equal(expected, actual);

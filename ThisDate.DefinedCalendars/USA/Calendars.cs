@@ -23,7 +23,7 @@
 		///-------------------------------------------------------------------------------------------------
 		public static void NewYorkStockExchange()
 		{
-			Holidays.NewYearsDay(false, true, true);
+			Holidays.NewYearsDay(true, false, true);
 			Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.GoodFriday(true);
@@ -51,7 +51,7 @@
 		///-------------------------------------------------------------------------------------------------
 		public static void UsaFederal()
 		{
-			Holidays.NewYearsDay(false, true, true);
+			Holidays.NewYearsDay(true, false, true);
 			Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.MemorialDay(true);
@@ -80,14 +80,14 @@
 		///-------------------------------------------------------------------------------------------------
 		public static void UsaObservance()
 		{
-			Holidays.NewYearsDay(false, true, true);
+			Holidays.NewYearsDay(true, false, true);
 			Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.MemorialDay(true);
 			Holidays.IndependenceDay(true, true, true);
 			Holidays.LaborDay(true);
 			Holidays.ColumbusDay(false);
-			Holidays.VeteransDay(true, true, false);
+			Holidays.VeteransDay(false, true, true);
 			Holidays.ThanksgivingDay(true);
 			Holidays.ChristmasDay(true, true, true);
 			Holidays.Weekends();

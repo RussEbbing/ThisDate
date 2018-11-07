@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.DefinedCalendars.USA.Holidays.html",
-          "hash": "rmlEHPSxplTOTdhLpH9Eag=="
+          "hash": "tKRn58obKX20NdpYDznRaA=="
         }
       },
       "is_incremental": true,
@@ -150,10 +150,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "H+XA2Z70OpIOKIE0eZSfog=="
+          "hash": "CDp6OYs9Kq2FXAMmduuSew=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {

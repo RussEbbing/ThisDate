@@ -14,12 +14,15 @@ ThisDate was built on .net Core 2.x, Visual Studio 2017, Resharper, xUnit tested
 
 To install ThisDate, run the following command in the Package Manage Console
 
-	PM> Nuget package to come soon!
+	PM> Nuget package under construction!
+
 
 
 ## API Documentation
 
-[API Documentation](/documentation/api/ThisDate.html)
+    [API Index](api/index.html)
+    [Main API CalendarDateTime](api/ThisDate.html)
+
 
 
 ## Quick Start:
@@ -28,6 +31,8 @@ To install ThisDate, run the following command in the Package Manage Console
 2. Create a console app on Visual Studio.
 3. Copy/paste the sample code below. 
 4. The sample code loads a a predefined New York Stock Exchange (NYSE) calendar.   
+
+
 
 ##### Code Examples:
 
@@ -140,10 +145,7 @@ namespace ConsoleApp1
 ```
 
 
-
 ## Working with ThisDate
-
-[API Documentation]: /api/ThisDate.CalendarDateTime.html
 
 
 ##### Conventions/calling methods
@@ -158,11 +160,11 @@ var IsWorkDay(this dateTime) ;	// The 'this' identifies extension method.
 Extension methods can be called in the following ways:
 
 ```
-var date = new DateTime.Now; 		// some date
-var result1 = IsWorkDate(date);
+var date = new DateTime.Now; 		// Some random date
+var result1 = IsWorkDate(date);  
 var result2 = date.IsWorkDate();
 
-// Using LINQ, get all the working days from a list.
+// Using LINQ, all work days from a list.
 var allWorkDays = DatesList.Where(s => s.IsWorkDate());
 
 ```
@@ -175,7 +177,10 @@ Methods not related to a calendar require no configuration while calendar method
 
 ### Configuration Pattern Template
 
-##### A literal string class (optional but recommended)
+    Note: This is a recommened pattern is not the only sollution.  
+
+
+##### Define a literal string class (optional but recommended)
 
 ```
 namespace ThisDate.DefinedCalendars.USA
@@ -204,40 +209,26 @@ namespace ThisDate.DefinedCalendars.USA
 	}
 }
 
-Although not required, its good practice to avoid literal "text" literal strings to avoid sneaky typos.
+// Although not required, its good practice to avoid literal "text" literal strings to avoid sneaky typos and allow edtor tools to help more.
 ```
 
 
 
-##### Calendar definition:
-
-```
-	public static class Calendars
-	{
-		public static void NewYorkStockExchange()
-		{
-			Holidays.NewYearsDay(false, true, true);
-			Holidays.MartinLutherKingDay(true);
-			Holidays.PresidentsDay(true);
-			Holidays.GoodFriday(true);
-			Holidays.MemorialDay(true);
-			Holidays.IndependenceDay(true, true, true);
-			Holidays.LaborDay(true);
-			Holidays.ThanksgivingDay(true);
-			Holidays.ChristmasDay(true, true, true);
-			Holidays.Weekends();
-		}
-	}
-```
-
-##### Holiday definitions:
+##### Define the event (holiday) definitions (USA in this example):
 
 ```
 using System;
 
 namespace ThisDate.DefinedCalendars.USA
 {
-		public static class Holidays
+    // This is likely the most complicated step. Define all of the possible events that calendars need. 
+    // There will be one more class which will use this class to build a calendar. A calendar may be 
+    // the New York Stock Exchange (NYSE) calendar, the USA Government calendar, whatever else. More 
+    // details in follows below and in the API documentations.
+    //  
+    // Define an all-events class:
+
+    public static class Holidays
 	{
 		public static void ChristmasDay(bool saturdayBack, bool sundayForward, bool dayOff)
 		{
@@ -246,13 +237,13 @@ namespace ThisDate.DefinedCalendars.USA
 
 		public static void ColumbusDay(bool dayOff)
 		{
-			var start = new DateTime(1492, 1, 1);
+			var start = new DateTime(1492, 1, 1);   // Columbus Day start date.
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ColumbusDayText, 																							dayOff, 10, 2, DayOfWeek.Monday, start);
 		}
 
 		public static void EasterSunday(bool dayOff)
 		{
-			var start = new DateTime(30, 1, 1);
+			var start = new DateTime(30, 1, 1);     // Scholars believe this is the start date.
 			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, dayOff, 																									start);
 		}
 
@@ -360,7 +351,74 @@ namespace ThisDate.DefinedCalendars.USA
 }
 ```
 
-##### Declare the calendar in the start of your app
+
+
+##### Calendar Definition:
+
+```
+	// Now define the calendars. The New York Stock Exchange (NYSE), the USA Federal calendar, 
+    // and all observed calendar. Whatever your requirements need. These calendars are included in the API.
+  
+    public static class Calendars
+	{
+		public static void NewYorkStockExchange()
+		{
+			Holidays.NewYearsDay(false, true, true);    // (!saturdayBack, sundayForward, isWorkday)
+			Holidays.MartinLutherKingDay(true);         // (isWorkday)
+			Holidays.PresidentsDay(true);               
+			Holidays.GoodFriday(true);
+			Holidays.MemorialDay(true);
+			Holidays.IndependenceDay(true, true, true);
+			Holidays.LaborDay(true);
+			Holidays.ThanksgivingDay(true);
+			Holidays.ChristmasDay(true, true, true);
+			Holidays.Weekends();
+		}
+
+		public static void UsaFederal()
+		{
+			Holidays.NewYearsDay(false, true, true);
+			Holidays.MartinLutherKingDay(true);
+			Holidays.PresidentsDay(true);
+			Holidays.MemorialDay(true);
+			Holidays.IndependenceDay(true, true, true);
+			Holidays.LaborDay(true);
+			Holidays.ColumbusDay(true);
+			Holidays.VeteransDay(true, true, true);
+			Holidays.ThanksgivingDay(true);
+			Holidays.ChristmasDay(true, true, true);
+			Holidays.Weekends();
+		}
+
+		public static void UsaObservance()
+		{
+			Holidays.NewYearsDay(false, true, true);
+			Holidays.MartinLutherKingDay(true);
+			Holidays.PresidentsDay(true);
+			Holidays.MemorialDay(true);
+			Holidays.IndependenceDay(true, true, true);
+			Holidays.LaborDay(true);
+			Holidays.ColumbusDay(false);
+			Holidays.VeteransDay(true, true, false);
+			Holidays.ThanksgivingDay(true);
+			Holidays.ChristmasDay(true, true, true);
+			Holidays.Weekends();
+
+			Holidays.ValentinesDay(false);
+			Holidays.MothersDay(false);
+			Holidays.FathersDay(false);
+			Holidays.GoodFriday(false);
+			Holidays.EasterSunday(false);
+			Holidays.GroundhogDay(false);
+			Holidays.Halloween(false);
+			Holidays.SaintPatrickDay(false);
+		}
+	}
+```
+
+
+
+##### How to use the calendar in code.
 
 ```
 namespace ConsoleApp1
@@ -379,19 +437,20 @@ namespace ConsoleApp1
 
 
 
-##### Configuration Convention
+##### Configuration Conventions
 
-All of the configuration methods start as Add-xxxx-Event(parameters) pattern. 
+All of the configuration methods are patterned as Add-____-Event(parameters). 
 
-where the general parameter patterns are:
+Generally the parameters follow this sequence:
 
 ```
 string eventName - Required, event name, must be unique, case insentive.
 bool isDayOff - true if is a day off, false if is a workday.
 DateTime? startDate - optional start date, if null, DateTime.MinValue.
 DateTime? endDate - optional end date, if null, DateTime.MaxValue.
-
 ```
+
+
 
 ##### Add Dated Events (specific single date events)
 
@@ -403,8 +462,8 @@ AddDateEvent(string eventName, bool dayOff, DateTime date)
 // Example: Grand opening day, Octobor 1, 2018. 
 var date = new DateTime(2018, 10, 1);
 AddDateEvent("Grand Opening Day", false, date, date);
-
 ```
+
 
 #### Monthly Events
 
@@ -418,16 +477,17 @@ Events that occur on certain date of every month.
 
 ```
 AddMonthlyDateEvent(string eventName, bool dayOff, int monthDay, 
-										DateTime? startDate = null, DateTime? endDate = null)
-```
-
-	where: monthDay = the date each month. 
+									DateTime? startDate = null, DateTime? endDate = null)
+	
+ // where: monthDay = the specific date each month. 
 
 ```
 // Example: Rent is due on the 15th of every month.
 AddMonthlyDateEvent("Rent Due", 15, startDate); // Note, end date is null, 					                                                   // DateTime.MaxValue
 
 ```
+
+
 
 ##### Add Monthly Last Day of the Month Event
 
@@ -482,10 +542,11 @@ CalendarDateTime.AddYearlyDayOfWeekReverseEvent(HolidayNames.MemorialDayText, tr
 
 ```
 
+
+
 #### Weekly Events
 
 These methods add weekly occurrences to some pattern. 
-
 
 
 ##### Add weekly events that occur on a list of days-of-week
@@ -544,7 +605,10 @@ CalendarDateTime.AddWeeklyInMonthEvent("Monday biweekly", false, DayOfWeek.Monda
 											
 ```
 
+
+
 #### Add Yearly Events
+
 
 ##### Add Easter Sunday/Good Friday (calculated events)
 
@@ -561,6 +625,7 @@ CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, true, s
 
 
 ##### Add Yearly Events
+
 
 Events that occur every year. There are options to shift the celebration date from Saturday to Friday or shift Sunday to Monday.
 
@@ -581,6 +646,8 @@ var sundayForward = true;
 CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, true, 1, 1, 																						saturdayBack, sundayForward);
 
 ```
+
+
 
 #### Collections Methods
 
@@ -608,9 +675,12 @@ ImmutableArray<DateTime> EventDatesBetween(this string eventName,
                               int? year1, int? year2) 
 ```
 
+
+
 ### ThisDate Core Methods
 
-The following are the 'core' methods. See technical documentation for nitty gritty details. 
+
+The following are the 'core' methods. See API documentation for further details. 
 
 ```
 // Returnd date, x (+/-) days from the current date, skipping all non work days.
@@ -721,10 +791,12 @@ int WeeksInMonth(this DateTime date)
 ```
 
 
+
 ## Source Code
 
 The source code is available on GitHub. The solution includes a project for building date/time dimension tables, additional documentation, and xUint testing, templates for building custom calendar.. 
 GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
+
 
 
 ## Built With
@@ -735,9 +807,13 @@ GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
 - Atomineer
 - DocFx
 
+
+
 ## Author
 
 - **Russell D Ebbing** - RussEbbing@gmail.com 
+
+
 
 ## License
 
