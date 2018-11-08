@@ -28,18 +28,17 @@ To install ThisDate, run the following command in the Package Manage Console
 
 ## API Documentation
 
+
+[Main API CalendarDateTime](api/ThisDate.CalendarDateTime.html)
+
 [API Index](api/index.html)
-
-[Main API CalendarDateTime](api/ThisDate.html)
-
 
 
 
 
 ## Source Code
 
-The source code is available on GitHub. 
-GitHub Address:   [ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
+[ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
 
 The solution includes a project for building date/time dimension tables, additional documentation, 
 and xUint testing. 
