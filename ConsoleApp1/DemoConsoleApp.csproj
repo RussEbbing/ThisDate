@@ -3,6 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
+    <Company>Russell Dion Ebbing (RussEbbing@Gmail.com)</Company>
+    <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

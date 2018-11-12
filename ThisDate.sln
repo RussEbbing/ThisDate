@@ -5,10 +5,8 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C90C01CC-5DAC-4026-87DA-0C2A79949214}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Users\Russell\Desktop\Calendar Check Mark 500x500.png = ..\..\Users\Russell\Desktop\Calendar Check Mark 500x500.png
-		..\..\Users\Russell\Desktop\Clock 500x500.png = ..\..\Users\Russell\Desktop\Clock 500x500.png
-		License.txt = License.txt
 		Overview.txt = Overview.txt
+		~LICENSE.txt = ~LICENSE.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThisDate", "ThisDate\ThisDate.csproj", "{6B8EEBBB-D7C2-497D-BBD6-D7C2BFBD2E3B}"

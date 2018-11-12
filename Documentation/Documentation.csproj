@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Copyright>Russell Dion Ebbing</Copyright>
+    <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
+    <Product>ThisDate</Product>
+    <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

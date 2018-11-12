@@ -2,9 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PackageLicenseUrl>Russell Dion Ebbing (MIT)</PackageLicenseUrl>
+    <PackageLicenseUrl>Russell Dion Ebbing, Copyright (©) 2018 MIT</PackageLicenseUrl>
     <AssemblyName>ThisDate.DefinedCalendars</AssemblyName>
     <RootNamespace>ThisDate.DefinedCalendars</RootNamespace>
+    <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
+    <Company>Russell Dion Ebbing (RussEbbing@Gmail.com)</Company>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

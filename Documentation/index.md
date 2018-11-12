@@ -14,6 +14,7 @@ ThisDate is built with .net Core 2.x, Visual Studio 2017, Resharper, fully xUnit
 
 
 
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 
 ## Install:
@@ -26,22 +27,24 @@ To install ThisDate, run the following command in the Package Manage Console
 
 
 
-## API Documentation
+## Documentation
 
 
-[Main API CalendarDateTime](api/ThisDate.CalendarDateTime.html)
+[Web Site](https://russebbing.github.io/ThisDate/)
+
+[API CalendarDateTime](api/ThisDate.CalendarDateTime.html)
 
 [API Index](api/index.html)
 
 
 
-
 ## Source Code
 
-[ThisDate GitHub Site]: https://github.com/RussEbbing/ThisDate
+[GitHub](https://github.com/RussEbbing/ThisDate)
 
-The solution includes a project for building date/time dimension tables, additional documentation, 
-and xUint testing. 
+
+Solution includes project for building date/time dimension tables, additional documentation, 
+and xUint testing, further documentation. 
 
 
 
@@ -191,7 +194,7 @@ var allWorkDays = DatesList.Where(s => s.IsWorkDate());
 
 
 
-
+<img src="Images\Calendar Check Mark 500x500.png" width="100px" />
 
 ### Configuration
 
@@ -318,9 +321,9 @@ namespace ThisDate.DefinedCalendars.USA
 	
 		public static void MartinLutherKingDay(bool dayOff)
 		{
-			var start = new DateTime(1986, 1, 1);
-      CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
-      		HolidayNames.MartinLutherKingText, dayOff, 1, 3, DayOfWeek.Monday, start);
+	        var start = new DateTime(1986, 1, 1);
+            CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
+            HolidayNames.MartinLutherKingText, dayOff, 1, 3, DayOfWeek.Monday, start);
   		}
 	
 		public static void MemorialDay(bool dayOff)
@@ -335,8 +338,8 @@ namespace ThisDate.DefinedCalendars.USA
 		{
 			var start = new DateTime(1914, 1, 1);
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
-									HolidayNames.MothersDayText, dayOff, 5, 2, 
-	                DayOfWeek.Sunday, start);
+                            HolidayNames.MothersDayText, dayOff, 5, 2,
+                            DayOfWeek.Sunday, start);
 		}
 	
 		public static void NewYearsDay(bool dayOff, bool saturdayBack, bool sundayForward)
@@ -350,7 +353,7 @@ namespace ThisDate.DefinedCalendars.USA
 			var start = new DateTime(1971, 1, 1);
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
 								HolidayNames.PresidentsDayText, dayOff, 2, 3, 
-                DayOfWeek.Monday, start);
+                            DayOfWeek.Monday, start);
 		}
 	
 		public static void SaintPatrickDay(bool dayOff)
@@ -365,7 +368,7 @@ namespace ThisDate.DefinedCalendars.USA
 			var start = new DateTime(1619, 1, 1);   // No exact year, 1621, 1619 comes up.
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
 								HolidayNames.ThanksgivingDayText, dayOff, 11, 
-                4, DayOfWeek.Thursday, start);
+                            4, DayOfWeek.Thursday, start);
 		}
 	
 		public static void ValentinesDay(bool dayOff)
@@ -412,8 +415,8 @@ namespace ThisDate.DefinedCalendars.USA
 	{
 		public static void NewYorkStockExchange()
 		{
-		    Holidays.NewYearsDay(true, false, true);
-		    Holidays.MartinLutherKingDay(true);
+          Holidays.NewYearsDay(true, false, true);
+		   Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.GoodFriday(true);
 			Holidays.MemorialDay(true);
@@ -424,44 +427,44 @@ namespace ThisDate.DefinedCalendars.USA
 			Holidays.Weekends();
 		}
 
-	public static void UsaFederal()
-	{
-		Holidays.NewYearsDay(true, false, true);
-		Holidays.MartinLutherKingDay(true);
-		Holidays.PresidentsDay(true);
-		Holidays.MemorialDay(true);
-		Holidays.IndependenceDay(true, true, true);
-		Holidays.LaborDay(true);
-		Holidays.ColumbusDay(true);
-		Holidays.VeteransDay(true, true, true);
-		Holidays.ThanksgivingDay(true);
-		Holidays.ChristmasDay(true, true, true);
-		Holidays.Weekends();
-	}
+	    public static void UsaFederal()
+	    {
+		    Holidays.NewYearsDay(true, false, true);
+		    Holidays.MartinLutherKingDay(true);
+		    Holidays.PresidentsDay(true);
+		    Holidays.MemorialDay(true);
+		    Holidays.IndependenceDay(true, true, true);
+		    Holidays.LaborDay(true);
+		    Holidays.ColumbusDay(true);
+		    Holidays.VeteransDay(true, true, true);
+		    Holidays.ThanksgivingDay(true);
+		    Holidays.ChristmasDay(true, true, true);
+		    Holidays.Weekends();
+	    }
 
-	public static void UsaObservance()
-	{
-		Holidays.NewYearsDay(true, false, true);
-		Holidays.MartinLutherKingDay(true);
-		Holidays.PresidentsDay(true);
-		Holidays.MemorialDay(true);
-		Holidays.IndependenceDay(true, true, true);
-		Holidays.LaborDay(true);
-		Holidays.ColumbusDay(false);
-		Holidays.VeteransDay(false, true, true);
-		Holidays.ThanksgivingDay(true);
-		Holidays.ChristmasDay(true, true, true);
-		Holidays.Weekends();
+	    public static void UsaObservance()
+	    {
+		    Holidays.NewYearsDay(true, false, true);
+		    Holidays.MartinLutherKingDay(true);
+		    Holidays.PresidentsDay(true);
+		    Holidays.MemorialDay(true);
+		    Holidays.IndependenceDay(true, true, true);
+		    Holidays.LaborDay(true);
+		    Holidays.ColumbusDay(false);
+		    Holidays.VeteransDay(false, true, true);
+		    Holidays.ThanksgivingDay(true);
+		    Holidays.ChristmasDay(true, true, true);
+		    Holidays.Weekends();
 
-		Holidays.ValentinesDay(false);
-		Holidays.MothersDay(false);
-		Holidays.FathersDay(false);
-		Holidays.GoodFriday(false);
-		Holidays.EasterSunday(false);
-		Holidays.GroundhogDay(false);
-		Holidays.Halloween(false);
-		Holidays.SaintPatrickDay(false);
-	}
+		    Holidays.ValentinesDay(false);
+		    Holidays.MothersDay(false);
+		    Holidays.FathersDay(false);
+		    Holidays.GoodFriday(false);
+		    Holidays.EasterSunday(false);
+		    Holidays.GroundhogDay(false);
+		    Holidays.Halloween(false);
+		    Holidays.SaintPatrickDay(false);
+	    }
 }
 ```
 
@@ -705,7 +708,7 @@ CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, true, 1, 1, sa
 
 #### Collections Methods
 
-Internally ThisDate builds on a set of dictionaries. These methods pull dictionary data.
+Internally ThisDate builds on a set of dictionaries where the name of the event is the key, values or method methods that calculate the value.
 
 int CountDateEvents 
 int CountEvents
@@ -865,7 +868,7 @@ The source code for building a Date/Time data warehouse data table.
 ## Author
 
 - **Russell D Ebbing** - RussEbbing@gmail.com 
-- 
+
 
 
 ## ArtWorks

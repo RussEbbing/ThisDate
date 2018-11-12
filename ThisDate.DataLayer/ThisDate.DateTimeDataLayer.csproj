@@ -5,6 +5,11 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>ThisDate.DateTimeDataLayer</AssemblyName>
     <RootNamespace>ThisDate.DateTimeDataLayer</RootNamespace>
+    <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
+    <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
+    <Company>Russell Dion Ebbing (RussEbbing@Gmail.com)</Company>
   </PropertyGroup>
 
   <ItemGroup>

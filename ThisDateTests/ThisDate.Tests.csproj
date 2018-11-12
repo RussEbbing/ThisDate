@@ -5,11 +5,19 @@
 
     <IsPackable>false</IsPackable>
 
-    <Copyright>Russell Dion Ebbing (MIT)</Copyright>
+    <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
 
     <AssemblyName>ThisDate.Tests</AssemblyName>
 
     <RootNamespace>ThisDate.Tests</RootNamespace>
+
+    <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
+
+    <RepositoryType>GitHub</RepositoryType>
+
+    <Company>Russell Dion Ebbing</Company>
+
+    <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
   </PropertyGroup>
 
   <ItemGroup>

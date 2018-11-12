@@ -2,9 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Copyright>Russell Dion Ebbing (MIT)</Copyright>
+    <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
     <PackageLicenseUrl />
     <AssemblyName>ThisDate</AssemblyName>
+    <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
+    <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
