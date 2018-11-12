@@ -68,7 +68,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using ThisDate;												// ThisDate main reference.
+using ThisDate;							// ThisDate main reference.
 using ThisDate.DefinedCalendars.USA;	// (optional if defining your own)
 
 namespace ConsoleApp1
@@ -84,17 +84,17 @@ namespace ConsoleApp1
    // some random test date/time.
    var aDate = new DateTime(2018, 5, 31, 21, 44, 50);  
 
-   var isWorkday = aDate.IsWorkDay();         			  // True
-   var isDayOff = aDate.IsDayOff();           			  // False
-   var weekOfYear = aDate.WeekOfYear();       			  // 22
-   var weekOfMonth = aDate.WeekOfMonth();     			  // 5
-   var quarterNo = aDate.Quarter();           			  // 2
-   var quarterShort = aDate.QuarterShort();   			  // "Q2"
-   var quarterLong = aDate.QuarterLong();     			  // "Quarter 2" 
-   var isWeekend = aDate.IsWeekend();         			  // False
-   var roundToMinute = aDate.RoundToMinute(); 			  // 2018/5/1 21:45:00.0
-   var roundToHour = aDate.RoundToHour();	    			  // 2018/5/1 22:00:00.0
-   var isLastWeek = aDate.IsLastWeekOfMonth();			  // True
+   var isWorkday = aDate.IsWorkDay();         		  // True
+   var isDayOff = aDate.IsDayOff();           		  // False
+   var weekOfYear = aDate.WeekOfYear();       		  // 22
+   var weekOfMonth = aDate.WeekOfMonth();     		  // 5
+   var quarterNo = aDate.Quarter();           		  // 2
+   var quarterShort = aDate.QuarterShort();   		  // "Q2"
+   var quarterLong = aDate.QuarterLong();     		  // "Quarter 2" 
+   var isWeekend = aDate.IsWeekend();         		  // False
+   var roundToMinute = aDate.RoundToMinute(); 	      // 2018/5/1 21:45:00.0
+   var roundToHour = aDate.RoundToHour();	    		  // 2018/5/1 22:00:00.0
+   var isLastWeek = aDate.IsLastWeekOfMonth();		  // True
    var thirtyWorkDaysForward = aDate.AddWorkdays(30); // Skips holidays, weekends...
    var thirtyWorkdaysBack = aDate.AddWorkdays(-30);   // 
    var events = aDate.EventsOnDate(true, true);       // {}, no holidays on this date.
@@ -194,7 +194,8 @@ var allWorkDays = DatesList.Where(s => s.IsWorkDate());
 
 
 
-<img src="Images\Calendar Check Mark 500x500.png" width="100px" />
+
+<img src="Images\CalendarCheckMark500x500.png" width="100px" />
 
 ### Configuration
 
@@ -270,53 +271,58 @@ namespace ThisDate.DefinedCalendars.USA
 
 		public static void ColumbusDay(bool dayOff)
 		{
-			var start = new DateTime(1492, 1, 1);       // start is when the holiday starts.
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ColumbusDayText, 															               dayOff, 10, 2, DayOfWeek.Monday, start);
+			var start = new DateTime(1492, 1, 1);   // start is when the holiday starts.
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ColumbusDayText,
+ 													dayOff, 10, 2, DayOfWeek.Monday, start);
 		}
 	
 		public static void EasterSunday(bool dayOff)
 		{
 			var start = new DateTime(30, 1, 1); // Scolars believe the year was 30 or 33.
-			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, dayOff, 																									start);
+			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, 
+                                                    dayOff, start);
 		}
 	
 		public static void FathersDay(bool dayOff)
 		{
 			var start = new DateTime(1910, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.FathersDayText, 																		             dayOff, 6, 3, DayOfWeek.Sunday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.FathersDayText,
+                                    	             dayOff, 6, 3, DayOfWeek.Sunday, start);
 		}
 	
 		public static void GoodFriday(bool dayOff)
 		{
 			var start = new DateTime(30, 1, 1); // Scholars believe the year 30 or 33.
-			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.GoodFridayText, 
-																								dayOff, start);
+			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.GoodFridayText,
+        					    							dayOff, start);
 		}
 	
 		public static void GroundhogDay(bool dayOff)
 		{
 			var start = new DateTime(1887, 1, 1);
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.GroundHogDayText, dayOff, 2, 2, 																						false, false, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.GroundHogDayText, dayOff, 2, 2,
+    												false, false, start);
 		}
 	
 		public static void Halloween(bool dayOff)
 		{
 			var start = new DateTime(1850, 1, 1);   // Seems no official start year
-			CalendarDateTime.AddYearlyDateEvent(HolidayNames.HalloweenText, dayOff, 10, 31, 																					false, false, start);
+			CalendarDateTime.AddYearlyDateEvent(HolidayNames.HalloweenText, dayOff, 10, 31,
+													false, false, start);
 		}
 	
-		public static void IndependenceDay(bool dayOff, 
-																		bool saturdayBack, bool sundayForward)
+		public static void IndependenceDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			var start = new DateTime(1776, 1, 1);   // Seems no official start year
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.IndependentsDayText, 
-															dayOff, 7, 4, saturdayBack, sundayForward, start);
+												dayOff, 7, 4, saturdayBack, sundayForward, start);
 		}
 	
 		public static void LaborDay(bool dayOff)
 		{
 			var start = new DateTime(1894, 1, 1);
-			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.LaborDayText, 																										dayOff, 9, 1, DayOfWeek.Monday, start);
+			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.LaborDayText,
+                        								dayOff, 9, 1, DayOfWeek.Monday, start);
 		}
 	
 		public static void MartinLutherKingDay(bool dayOff)
@@ -330,8 +336,8 @@ namespace ThisDate.DefinedCalendars.USA
 		{
 			var startDate = new DateTime(1868, 1, 1);
 			CalendarDateTime.AddYearlyDayOfWeekReverseEvent(
-											HolidayNames.MemorialDayText, dayOff, 5, 1,  
-                      DayOfWeek.Monday, startDate);
+										HolidayNames.MemorialDayText, dayOff, 5, 1,  
+                                   DayOfWeek.Monday, startDate);
 		}
 	
 		public static void MothersDay(bool dayOff)
@@ -345,7 +351,7 @@ namespace ThisDate.DefinedCalendars.USA
 		public static void NewYearsDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, dayOff, 1, 1, 
-	                                           saturdayBack, sundayForward);
+	                                          saturdayBack, sundayForward);
 		}
 	
 		public static void PresidentsDay(bool dayOff)
