@@ -1,0 +1,579 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ThisDate.DateTimeDataLayer</name>
+    </assembly>
+    <members>
+        <member name="T:ThisDate.DateTimeDataLayer.AppSettings">
+            <summary>
+            App settings.
+            </summary>
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.AppSettings.ConnectionString">
+            <summary>
+            The connection string, may want to put this in a web.config file.
+            </summary>
+        </member>
+        <member name="T:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Data access data context. </summary>
+            
+             <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext})">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Date Time Dimension data Context. </summary>
+            
+             <param name="options">	. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.#ctor">
+            <summary>	Date Time Dimension context. </summary>
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.DateDimension">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the date dimension. </summary>
+            
+             <value>	The date dimension. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.TimeDimension">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time dimensions. </summary>
+            
+             <value>	The time dimension. This will never be null. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.CreateDateDimension(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Creates date dimension. </summary>
+            
+             <param name="modelBuilder">	The model builder. This cannot be null. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.DateTimeDimensionContext.CreateTimeDimension(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Creates the time dimension. </summary>
+            
+             <param name="modelBuilder">	The model builder. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DateTimeDataLayer.Context.ServiceCollectionExtensions">
+            <summary>	Service collection extensions for entity framework. </summary>
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Context.ServiceCollectionExtensions.AddEntityFramework(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Adds the entity framework. </summary>
+            
+             <exception cref="T:System.ArgumentNullException">
+             	<paramref name="connectionString"/> is <see langword="null"/>
+             </exception>
+            
+             <param name="services">		   	The services. </param>
+             <param name="connectionString">	The connection string. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DateTimeDataLayer.Initialization.DateTimePopulation">
+            <summary>	Data date/time dimension database initializer methods. </summary>
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Initialization.DateTimePopulation.PopulateDateDimensionAsync(System.Int32,System.Int32)">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Populates full year of dates missing between January 1 start-year to December 31 end-
+             	year. If the year is found, the year is skipped. Method assumes full year, if a year
+             	exists this year is skipped.
+             </summary>
+            
+             <exception cref="T:System.ArgumentOutOfRangeException">	Years are out of range. </exception>
+             <exception cref="T:System.ArgumentException">		  	if startYear &gt; endYear. </exception>
+            
+             <param name="startYear">	The start year. </param>
+             <param name="endYear">  	The end year. </param>
+            
+             <returns>	An asynchronous result. </returns>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.Initialization.DateTimePopulation.PopulateTimeDimensionAsync(System.TimeSpan)">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Populate the time dimension at given time interval if the data has not yet been populated.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">		  	Time span cannot be zero. </exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">
+             	The parameters specify a <see cref="T:System.TimeSpan"/> value less than
+             	<see cref="F:System.TimeSpan.MinValue"/> or greater than
+             	<see cref="F:System.TimeSpan.MaxValue"/>.
+             </exception>
+            
+             <param name="incrementTimeSpan">	The increment time span. </param>
+            
+             <returns>	An asynchronous result. </returns>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DateTimeDataLayer.InstanceConstructors.DateTimeDimension">
+            <summary>	Date Time data warehouse dimension class. </summary>
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.InstanceConstructors.DateTimeDimension.DateDimensionInstance(System.DateTime)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Creates new instance of the DateDimension for given date. </summary>
+            
+             <param name="date">	The current date. </param>
+            
+             <returns>	A DateDimension. </returns>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DateTimeDataLayer.InstanceConstructors.DateTimeDimension.TimeDimensionInstance(System.DateTime)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Creates a new time dimension for given date. </summary>
+            
+             <param name="time">	The current time. </param>
+            
+             <returns>	A TimeDimension. This will never be null. </returns>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DateTimeDataLayer.Models.DateDimension">
+            <summary>	Date Dimension. </summary>
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DateEuro">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the date EURO format (YYYY/MM/DD). </summary>
+            
+             <value>	The date European format. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DateId">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the date ID (YYYYMMDD). </summary>
+            
+             <value>	The date ID. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DateTime">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the DateTime date. </summary>
+            
+             <value>	The date time. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DateUsa">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the date USA format (MM/DD/YYYY). </summary>
+            
+             <value>	The date us. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfMonth">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the day of month. </summary>
+            
+             <value>	The day of month. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfMonthLeadingZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the day of month with leading zero. </summary>
+            
+             <value>	The day of month leading zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfWeek2LetterName">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the name of the day of week2 letter. </summary>
+            
+             <value>	The name of the day of week2 letter. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfWeek3LetterName">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the name of the day of week3 letter. </summary>
+            
+             <value>	The name of the day of week3 letter. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfWeekCountInMonth">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Day-of-week count in month. Example: Feb 12, 2019 is the second Tuesday of the month.
+             </summary>
+            
+             <value>	The day of week count in month. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfWeekFullName">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the full name of the day of week. </summary>
+            
+             <value>	The full name of the day of week. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfWeekNumber">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the day of week number, [0=Sunday, ... 6=Saturday]. </summary>
+            
+             <value>	The day of week number. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfYear">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the day of year. </summary>
+            
+             <value>	The day of year. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.DayOfYearLeadingZeros">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the day of year leading zeros. </summary>
+            
+             <value>	The day of year leading zeros. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.EventsDayOff">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the events day off. </summary>
+            
+             <value>	The events day off. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.EventsToday">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the events today. </summary>
+            
+             <value>	The events today. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.EventsWorkday">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the events workday. </summary>
+            
+             <value>	The events workday. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsDayOff">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets a value indicating whether this instance a day off (not a workday). </summary>
+            
+             <value>	<c>true</c> if this instance is holiday; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsFirstDayOfMonth">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Gets or sets a value indicating whether this instance is first day of month.
+             </summary>
+            
+             <value>	<c>true</c> if this instance is first day of month; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsFirstWeekOfMonth">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Gets or sets a value indicating whether this instance is first week of month.
+             </summary>
+            
+             <value>	<c>true</c> if this instance is first week of month; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsLastDayOfMonth">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Gets or sets a value indicating whether this instance is last day of month.
+             </summary>
+            
+             <value>	<c>true</c> if this instance is last day of month; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsLastWeekOfMonth">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	Gets or sets a value indicating whether this instance is last week of month.
+             </summary>
+            
+             <value>	<c>true</c> if this instance is last week of month; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsLeapYear">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets a value indicating whether this instance is leap year. </summary>
+            
+             <value>	<c>true</c> if this instance is leap year; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsWeekDay">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets a value indicating whether this instance is week day. </summary>
+            
+             <value>	<c>true</c> if this instance is week day; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsWeekend">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets a value indicating whether this instance is weekend. </summary>
+            
+             <value>	<c>true</c> if this instance is weekend; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.IsWorkDay">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets a value indicating whether this instance is workday (not a day off). </summary>
+            
+             <value>	<c>true</c> if this instance is business day; otherwise, <c>false</c>. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.MonthFull">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the full name of the month. </summary>
+            
+             <value>	The full name of the month. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.MonthNumber">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the month number. </summary>
+            
+             <value>	The month number. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.MonthNumberLeadZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the month number with leading zero. </summary>
+            
+             <value>	The month number lead zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.MonthShort">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the short name of the month. </summary>
+            
+             <value>	The short name of the month. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.Quarter">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the quarter. </summary>
+            
+             <value>	The quarter. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.QuarterLong">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the long name of the quarter [First, Second, Third, Fourth]. </summary>
+            
+             <value>	The long name of the quarter. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.QuarterShort">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the short name of the quarter. </summary>
+            
+             <value>	The short name of the quarter. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.WeekNumber">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the week number. </summary>
+            
+             <value>	The week number. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.WeekNumberLeadingZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the week number with leading zero. </summary>
+            
+             <value>	The week number leading zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.Year">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the year. </summary>
+            
+             <value>	The year. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.DateDimension.YearShort">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the year short {2016 -&gt; 16...}. </summary>
+            
+             <value>	The year short. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DateTimeDataLayer.Models.TimeDimension">
+            <summary>	Time Dimension. </summary>
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.AmPm">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the AM/PM. </summary>
+            
+             <value>	The AM/PM. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Hour12">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the 12 hour. </summary>
+            
+             <value>	The hour. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Hour12LeadingZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the 12 hour, leading zero. </summary>
+            
+             <value>	The hour12 leading zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Hour24">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the 24 hour. </summary>
+            
+             <value>	The hour24. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Hour24LeadingZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the 24-hour leading zero. </summary>
+            
+             <value>	The hour24 leading zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Minute">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the minute. </summary>
+            
+             <value>	The minute. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.MinuteLeadingZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the minute leading zero. </summary>
+            
+             <value>	The minute leading zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.RoundToHour">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the Date/Time of the round to hour. </summary>
+            
+             <value>	The round to hour. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.RoundToMinute">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the Date/Time of the round to minute. </summary>
+            
+             <value>	The round to minute. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.RoundToSecond">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the Date/Time of the round to second. </summary>
+            
+             <value>	The round to second. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Second">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the second. </summary>
+            
+             <value>	The second. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.SecondLeadingZero">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the second leading zero. </summary>
+            
+             <value>	The second leading zero. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the DateTime time property. </summary>
+            
+             <value>	The time. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time12HourMin">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time12 hour/minute (hh:mm). </summary>
+            
+             <value>	The time 12-hour minimum. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time12HourMinAmPm">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time 12-hour/minimum AM/PM (HH:MM AM/PM). </summary>
+            
+             <value>	The time12 hour minimum am pm. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time12HourMinSecAmPm">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time 12-hour/min/sec AM/PM (HH:MM:SS AM/PM). </summary>
+            
+             <value>	The time12 hour minimum sec am pm. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time12HourMinSecMiliAmPm">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time 12 hour to millisecond (HH:MM:SS.fff). </summary>
+            
+             <value>	The 12 hour time to milliseconds. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time24HourMinCivilian">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time24 hour military civilian format (HH:MM). </summary>
+            
+             <value>	The time24 hour minimum civilian. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time24HourMinMilitary">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time24 hour minimum military format (HHMM). </summary>
+            
+             <value>	The time24 hour minimum military. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time24HourMinSecCivilian">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the 24 hour time (HH:MM:SS). </summary>
+            
+             <value>	The time24 hour minimum sec civilian. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time24HourMinSecMiliCivilian">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time 24 hour minimum sec mili civilian. </summary>
+            
+             <value>	The time24 hour minimum sec mili civilian. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time24HourMinSecMiliMilitary">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the 24 hour time (HHMMSSfff) format. </summary>
+            
+             <value>	The time24 hour minimum sec mili. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.Time24HourMinSecMilitary">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets the time24 hour/min/sec (HHMMSS). </summary>
+            
+             <value>	The time24 hour minimum sec. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DateTimeDataLayer.Models.TimeDimension.TimeId">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Gets or sets time ID (HHMMSSFFF, 24 hour with mili seconds). </summary>
+            
+             <value>	The time ID. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+    </members>
+</doc>

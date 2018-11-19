@@ -14,10 +14,18 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>ThisDate Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate</PackageTags>
     <PackageIconUrl>ThisDateClock128x128.png</PackageIconUrl>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Add missing XML Comments.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netcoreapp2.0\ThisDate.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\GitHub\ThisDate\ThisDate\ThisDate.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

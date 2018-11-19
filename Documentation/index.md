@@ -25,8 +25,8 @@ ThisDate is built with .net Core 2.x, Visual Studio 2017, Resharper, fully xUnit
 To install ThisDate, run the following command in the Package Manage Console. ThisDate is the core API. ThisDate.DefinedCalendars adds a few pre-defined calendars using ThisDate.
 
 ```
-PM> Install-Package ThisDate -Version 1.0.0
-PM> Install-Package ThisDate.DefinedCalendars -Version 1.0.0
+PM> Install-Package ThisDate -Version 1.0.1
+PM> Install-Package ThisDate.DefinedCalendars -Version 1.0.1
 ```
 
 

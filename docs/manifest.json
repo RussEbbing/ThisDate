@@ -53,7 +53,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.CalculatedEventsText.html",
-          "hash": "Yf1XVdv39BQCKTee6ef+ZA=="
+          "hash": "VZfWOkdsjoliSHcvi2G0jA=="
         }
       },
       "is_incremental": false,
@@ -65,7 +65,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.CalendarDateTime.html",
-          "hash": "ruWZfPsVTiGawyFCdtJHFg=="
+          "hash": "vlTQEWGXQDO4DqapV2oBnQ=="
         }
       },
       "is_incremental": false,
@@ -77,7 +77,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.DefinedCalendars.USA.Calendars.html",
-          "hash": "Q70YmzxVdUaXnTHAAUwqrQ=="
+          "hash": "qxxr3XmGth+z1pV6KDnU/w=="
         }
       },
       "is_incremental": false,
@@ -89,7 +89,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.DefinedCalendars.USA.HolidayNames.html",
-          "hash": "g6UAOLb0sOGKX2/ObOUu7A=="
+          "hash": "larDFo3bicFRhZTDzlXMhQ=="
         }
       },
       "is_incremental": false,
@@ -101,7 +101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.DefinedCalendars.USA.Holidays.html",
-          "hash": "tKRn58obKX20NdpYDznRaA=="
+          "hash": "TEaXHeCAcr06wOQDHVlBQQ=="
         }
       },
       "is_incremental": false,
@@ -113,7 +113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.DefinedCalendars.USA.html",
-          "hash": "qR88hr4Pi+WCmMFpG2QP1Q=="
+          "hash": "eDMCRTC348FQ/ZFk0Neg2g=="
         }
       },
       "is_incremental": false,
@@ -125,7 +125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ThisDate.html",
-          "hash": "T1CZJVkQf7DBUXUsyAn0CA=="
+          "hash": "cU0VYu9ZoXTXjZCXYcIzQg=="
         }
       },
       "is_incremental": false,
@@ -137,7 +137,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "e1pk85vRAH/s2YRfjgbZIQ=="
+          "hash": "sXKFq8pvfSsa27vTnPktjA=="
         }
       },
       "is_incremental": false,
@@ -164,7 +164,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "UqPfMefHEOjZkNaGy2UU4g=="
+          "hash": "ypAVqusZ+PE317Dr6vFUjA=="
         }
       },
       "is_incremental": false,
@@ -186,27 +186,26 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because docfx version changed from 2.40.2.0 to 2.40.0.0.",
+        "can_incremental": true,
         "incrementalPhase": "build"
       },
       "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build"
-        },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build"
         }
       }

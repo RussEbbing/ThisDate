@@ -16,6 +16,10 @@
     <PackageIconUrl>ThisDateClock128x128.png</PackageIconUrl>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\GitHub\ThisDate\ThisDate.DataLayer\ThisDate.DateTimeDataLayer.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="EFCore.BulkExtensions" Version="2.2.5" />
     <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />

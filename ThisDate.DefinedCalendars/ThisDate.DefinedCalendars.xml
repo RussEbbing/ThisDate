@@ -1,0 +1,480 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ThisDate.DefinedCalendars</name>
+    </assembly>
+    <members>
+        <member name="T:ThisDate.DefinedCalendars.USA.Calendars">
+            -------------------------------------------------------------------------------------------------
+             <summary>	USA calendars. </summary>
+            
+             <seealso cref="T:ThisDate.DefinedCalendars.USA.Holidays"/>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Calendars.NewYorkStockExchange">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	New York Stock Exchange (NYSE) calendar. New Years, Martin Luther King, Presidents day,
+             	Good Friday, Easter, Memorial Day, Independence Day, Labor Day, Thanksgiving Day,
+             	Christmas, Saturdays and Sundays.
+             </summary>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	Calendars.NewYorkStockExchange();
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Calendars.UsaFederal">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	USA Federal Government event calendar. All non work days. New Years, Martin Luther King,
+             	presidents day, Memorial Day, Independence Day, Labor Day, Columbus Day, Veterans Day,
+             	Thanksgiving Day, Christmas, Saturdays, Sundays.
+             </summary>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	Calendars.UsaFederal();
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Calendars.UsaObservance">
+            -------------------------------------------------------------------------------------------------
+             <summary>
+             	USA full observance calendar with typical workday configurations. Includes USA Federal
+             	plus and Groundhog day, Mothers day, Fathers Day, Good Friday, Easter Sunday, Halloween,
+             	Saint Patrick's Day.
+             </summary>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	Calendars.UsaObservance();
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DefinedCalendars.USA.HolidayNames">
+            <summary>	USA Holiday text values. </summary>
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.ChristmasDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Christmas day text. </summary>
+            
+             <value>	The christmas day text. This will never be null. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.ColumbusDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Columbus Day text. </summary>
+            
+             <value>	The columbus day text. This will never be null. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.EasterSundayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Easter Sunday text. </summary>
+            
+             <value>	The easter sunday text. This will never be null. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.FathersDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Fathers day text. </summary>
+            
+             <value>	The fathers day text. This will never be null. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.GoodFridayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Good Friday text. </summary>
+            
+             <value>	The good friday text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.GroundHogDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Groundhog Day text. </summary>
+            
+             <value>	The ground hog day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.HalloweenText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Halloween text. </summary>
+            
+             <value>	The halloween text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.IndependentsDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Independents day text. </summary>
+            
+             <value>	The independents day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.LaborDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Labor day text. </summary>
+            
+             <value>	The labor day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.MartinLutherKingText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Martin Luther King text. </summary>
+            
+             <value>	The martin luther king text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.MemorialDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Memorial day text. </summary>
+            
+             <value>	The memorial day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.MothersDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Mother's day text. </summary>
+            
+             <value>	The mothers day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.NewYearsDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	New Years day text. </summary>
+            
+             <value>	The new years day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.PresidentsDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Presidents day text. </summary>
+            
+             <value>	The presidents day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.SaintPatrickDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Saint Patrick's Day text. </summary>
+            
+             <value>	The saint patrick day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.ThanksgivingDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Thanksgiving Day text. </summary>
+            
+             <value>	The thanksgiving day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.ValentinesDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Valentine's Day text. </summary>
+            
+             <value>	The valentines day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.VeteransDayText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Veteran's day text text. </summary>
+            
+             <value>	The veterans day text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.WeekendText">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Weekend text. </summary>
+            
+             <value>	The weekend text. </value>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:ThisDate.DefinedCalendars.USA.Holidays">
+            <summary>	USA calendar configuration. </summary>
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.ChristmasDay(System.Boolean,System.Boolean,System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Christmas Day. </summary>
+            <param name="dayOff">			Day off (not a workday). </param>
+            <param name="saturdayBack"> 	If the date is Saturday then observe on Friday. </param>
+            <param name="sundayForward">	If the date is Sunday then observe on Monday. </param>
+            <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	Holiday.ChristmasDay(false, true, true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.ColumbusDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Columbus Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.ColumbusDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.EasterSunday(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Easter Sunday. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.EasterSunday(true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.FathersDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Father's Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.FathersDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.GoodFriday(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Good Friday. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.GoodFriday(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.GroundhogDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Groundhog day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.GroundhogDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.Halloween(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Halloween. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.Halloween(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.IndependenceDay(System.Boolean,System.Boolean,System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Independence Day (4th of July). </summary>
+            <param name="dayOff">			Day off (not a workday). </param>
+            <param name="saturdayBack"> 	If the date is Saturday observe on Friday. </param>
+            <param name="sundayForward">	if the date is on Sunday observe on Monday. </param>
+            <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.Halloween(true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.LaborDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Labor Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.LaborDay(true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.MartinLutherKingDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Martin Luther King day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.MartinLutherKingDay(true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.MemorialDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Memorial Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.MemorialDay(true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.MothersDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Mothers Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.MothersDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.NewYearsDay(System.Boolean,System.Boolean,System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Adds the new years day. </summary>
+            <param name="dayOff">			Day off (not a workday). </param>
+            <param name="saturdayBack"> 	If date falls on Saturday then observe Friday. </param>
+            <param name="sundayForward">	If date falls on Sunday then observe on Monday. </param>
+            <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.NewYearsDay(true);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.PresidentsDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Presidents day (Washington's day). </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.PresidensDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.SaintPatrickDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Saint Patrick's Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.SaintPatrickDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.ThanksgivingDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Thanksgiving Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.ThanksgivingDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.ValentinesDay(System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Saint Patrick's Day. </summary>
+            
+             <param name="dayOff">	Day off (not a workday). </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.ValentinesDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.VeteransDay(System.Boolean,System.Boolean,System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add Veterans Day, November 11. </summary>
+            <param name="dayOff">			Day off (not a workday). </param>
+            <param name="saturdayBack"> 	Move back to Friday if on Saturday. </param>
+            <param name="sundayForward">	Move forward to Monday if on Sunday. </param>
+            <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.VeteransDay(false);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.Weekends">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Add weekly day-of-week day off. </summary>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.Weekends();
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.WeeklyDayOff(System.DayOfWeek)">
+            -------------------------------------------------------------------------------------------------
+             <summary>	Weekly day off. </summary>
+            
+             <param name="dayOfWeek">	The day of week. </param>
+            
+             <example>
+             	<code>
+             	// using ThisDate.DefinedCalendars.USA;
+             	CalendarDateTime.WeeklyDayOff(DayOfWeek.Friday);
+             	</code>
+             </example>
+            -------------------------------------------------------------------------------------------------
+        </member>
+    </members>
+</doc>
