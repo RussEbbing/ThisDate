@@ -73,25 +73,31 @@
 
 <img src="Images/Clock500x500.png" width="160px">
 <h1 id="thisdate">ThisDate</h1>
-<p>ThisDate extends DateTime with additional time, date, and calendar functionality. Rather than hardcoding it’s calendar to CultureInfo, lists, or such, ThisDate utilizes an array of occurrence patterns such as setting “Thanksgiving” as the third Thursday in November etc., therefore ThisDate is configurable for the New York Stock Exchange (NYSE), Federal Holiday calendar, Italian, Indian, Mexican, corporate, or whatever calendar you need.</p>
-<p>This project originally started as a grossly underestimated project to build a very detailed data warehouse date/time dimension table set for a project needing the New York Stock Exchange calendar. After 24 time and 36 date related fields, I realized ThisDate had far more reaching capabilities beyond dimension tables. A sampling of functions include; IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November, EventsOnDate(), EventDatesBetween(), and more.</p>
+<p>ThisDate extends DateTime with additional time, date, and calendar functionality. Rather than hardcoding it’s calendar to CultureInfo, lists, or such, ThisDate utilizes an array of occurrence patterns such as setting “Thanksgiving” as the third Thursday in November etc., therefore ThisDate is configurable for the New York Stock Exchange (NYSE), Federal Holiday calendar, Italian, Indian, Mexican, corporate, or whatever calendar you need.  A sampling of functions include; IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November, EventsOnDate(), EventDatesBetween(), and more.</p>
+<h3 id="modivation">Modivation</h3>
+<p>This project started as a grossly underestimated private project for building a very detailed data warehouse date/time dimension table set for a project with the New York Stock Exchange calendar. With over 24 time and 36 date related fields, I realized ThisDate had far more reaching capabilities beyond dimension tables.</p>
 <p>ThisDate is built with .net Core 2.x, Visual Studio 2017, Resharper, fully xUnit and coverage tested, documented using Atomineer and DocFx. The code is installable from NuGit, and open sourced  on GitHub which includes a date/time dimension table builder using Entity Framework Core.</p>
-<p><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="GitHub"></p>
-<h2 id="install">Install:</h2>
-<p>To install ThisDate, run the following command in the Package Manage Console</p>
-<pre><code>PM&gt; Nuget package under construction!
+<p><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="GitHub">
+<a href="https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></p>
+<h3 id="install">Install:</h3>
+<p>To install ThisDate, run the following command in the Package Manage Console. ThisDate is the core API. ThisDate.DefinedCalendars adds a few pre-defined calendars using ThisDate.</p>
+<pre><code>PM&gt; Install-Package ThisDate -Version 1.0.0
+PM&gt; Install-Package ThisDate.DefinedCalendars -Version 1.0.0
 </code></pre>
-<h2 id="documentation">Documentation</h2>
-<p><a href="https://russebbing.github.io/ThisDate/">Web Site</a></p>
+<h3 id="documentation">Documentation</h3>
+<p><a href="https://russebbing.github.io/ThisDate/">Site</a></p>
 <p><a href="api/ThisDate.CalendarDateTime.html">API CalendarDateTime</a></p>
 <p><a href="api/index.html">API Index</a></p>
-<h2 id="source-code">Source Code</h2>
+<h3 id="nuget">nuget</h3>
+<p><a href="https://www.nuget.org/packages/ThisDate/">ThisDate on nugit</a></p>
+<p><a href="https://www.nuget.org/packages/ThisDate.DefinedCalendars/">ThidDate.DefinedCanlendars</a></p>
+<h3 id="source-code">Source Code</h3>
 <p><a href="https://github.com/RussEbbing/ThisDate">GitHub</a></p>
 <p>Solution includes project for building date/time dimension tables, additional documentation,
 and xUint testing, further documentation.</p>
-<h2 id="quick-start">Quick Start:</h2>
+<h3 id="quick-start">Quick Start:</h3>
 <ol>
-<li>Install using the Package Manager Console as described above.</li>
+<li>Install using the Package Manager Console as described in the install section above.</li>
 <li>Create a console app on Visual Studio.</li>
 <li>Copy/paste the sample code below.</li>
 <li>The sample code loads a a predefined New York Stock Exchange (NYSE) calendar.</li>
@@ -147,7 +153,6 @@ namespace ConsoleApp1
 
    var anotherDate = new DateTime(2018, 11, 22);
    var eventsOnThisDay = CalendarDateTime.EventsOnDate(anotherDate, true, true);   
-       // {&quot;Thanksgiving Day&quot;}
 
    // LINQ example.
    // Set up list of of all days in May, 2018
@@ -200,7 +205,8 @@ namespace ConsoleApp1
   }
 }
 </code></pre>
-<h2 id="working-with-thisdate">Working with ThisDate</h2>
+<img src="Images/CalendarCheckMark500x500.png" width="130px">
+<h3 id="working-with-thisdate">Working with ThisDate</h3>
 <h5 id="conventions-and-calling-methods">Conventions and calling methods</h5>
 <p>Other than configuration all methods are static LINQ frendly extension methods.</p>
 <pre><code>// A typical method signature
@@ -214,7 +220,6 @@ var result2 = date.IsWorkDate();
 // Using LINQ to get all work days in a list.
 var allWorkDays = DatesList.Where(s =&gt; s.IsWorkDate());
 </code></pre>
-<img src="Images/CalendarCheckMark500x500.png" width="100px">
 <h3 id="configuration">Configuration</h3>
 <p>Only methods related to a calendar depend on a calendar defintion. ThisDate comes with a few prebuilt calendards
 such as, the New York Stock Exchange (NYSE) calendar, a few USA federal calendars. A few more
@@ -411,8 +416,8 @@ New York Stock Exchange (NYSE), a US Federal calendar, and a US observed holiday
 	{
 		public static void NewYorkStockExchange()
 		{
-          Holidays.NewYearsDay(true, false, true);
-		   Holidays.MartinLutherKingDay(true);
+			Holidays.NewYearsDay(true, false, true);
+			Holidays.MartinLutherKingDay(true);
 			Holidays.PresidentsDay(true);
 			Holidays.GoodFriday(true);
 			Holidays.MemorialDay(true);
@@ -478,7 +483,7 @@ New York Stock Exchange (NYSE), a US Federal calendar, and a US observed holiday
   }
 }
 </code></pre>
-<h3 id="configuration-conventions">Configuration Conventions</h3>
+<h4 id="configuration-conventions">Configuration Conventions</h4>
 <p>All of the configuration methods are patterned as Add____Event(parameters).</p>
 <p>Generally the parameters follow this sequence:</p>
 <pre><code>string eventName    - Required, event name, must be unique, case insentive.
@@ -758,11 +763,11 @@ int WeeksInMonth(this DateTime date)
 </ul>
 <h2 id="author">Author</h2>
 <ul>
-<li><strong>Russell D Ebbing</strong> - RussEbbing@gmail.com</li>
+<li><strong>Russell D Ebbing</strong> - RussEbbing@Gmail.com</li>
 </ul>
 <h2 id="artworks">ArtWorks</h2>
-<p>I thiank Chandler for helping me with the artworks!
-** Chandler Kozak** - Chanenzo@sbcglobal.net</p>
+<p><img src="Images/Clock500x500.png" width="60px"> <img src="Images/CalendarCheckMark500x500.png" width="50px"></p>
+<p>I thank <strong>Chandler Kozak</strong> for his artworks! - Chanenzo@sbcglobal.net</p>
 <h2 id="license">License</h2>
 <p>MIT License
 Copyright (c) 2018 Russell Dion Ebbing (RussEbbing@gmail.com)</p>

@@ -2,14 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PackageLicenseUrl>Russell Dion Ebbing, Copyright (©) 2018 MIT</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <AssemblyName>ThisDate.DefinedCalendars</AssemblyName>
     <RootNamespace>ThisDate.DefinedCalendars</RootNamespace>
     <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
     <Company>Russell Dion Ebbing (RussEbbing@Gmail.com)</Company>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://russebbing.github.io/ThisDate/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryType>git</RepositoryType>
+    <Description>ThisDate defined calendars examples. ThisDate is a Buildable event (holiday) calendar, date/time extensions. IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November (US Thanksgiving) and more.</Description>
+    <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>ThisDate Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageIconUrl>ThisDateClock128x128.png</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

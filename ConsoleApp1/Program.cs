@@ -38,7 +38,7 @@ namespace ConsoleApp1
 			var nyseHolidayNames = CalendarDateTime.KeysEvents; // All the NYSE holidays, "New Years Day", "Martin Luther King Day"... 10 in total.
 			var isLastDayOfMonth = aDate.IsLastDayOfMonth();    // False
 			var h = HolidayNames.MartinLutherKingText.EventDatesBetween(2010, 2020);    // All Martin Luther King dates from between 2010 and 2020.
-			var ForthThurday2018Date = CalendarDateTime.DayOfWeekMonthForward(2018, 11, DayOfWeek.Thursday, 4); // Thursday, November 22 (2018/11/22)
+			var ForthThursday2018Date = CalendarDateTime.DayOfWeekMonthForward(2018, 11, DayOfWeek.Thursday, 4); // Thursday, November 22 (2018/11/22)
 			var lastDayOfMonth = CalendarDateTime.LastDateOfMonth(2018, 5);             // 31
 			var isLastWeekOfMonth = aDate.IsLastWeekOfMonth();                          // True
 			var aIsFithWendnesdayOfMonth = aDate.IsNthDayOfWeek(5, DayOfWeek.Wednesday);// True

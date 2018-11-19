@@ -7,13 +7,17 @@
     <RootNamespace>ThisDate.DateTimeDataLayer</RootNamespace>
     <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
     <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryType>git</RepositoryType>
     <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
     <Company>Russell Dion Ebbing (RussEbbing@Gmail.com)</Company>
+    <Description>Date/Time demenion table builder using ThisDate &amp; ThisDate.DefinedCalendars. ThisDate is a Buildable event (holiday) calendar, date/time extensions. IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November (US Thanksgiving) and more.</Description>
+    <PackageProjectUrl>https://russebbing.github.io/ThisDate/</PackageProjectUrl>
+    <PackageTags>ThisDate Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate</PackageTags>
+    <PackageIconUrl>ThisDateClock128x128.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EFCore.BulkExtensions" Version="2.1.8" />
+    <PackageReference Include="EFCore.BulkExtensions" Version="2.2.5" />
     <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0-preview3-35497" />
     <!--<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="2.0.0-preview1-final" />-->

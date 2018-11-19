@@ -1,0 +1,29 @@
+NuGet Notes:
+
+Reference:
+https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio
+https://www.youtube.com/watch?v=jU33w5xxYH0
+
+
+
+Push ThisDate:
+-------------
+C:\GitHub\ThisDate\ThisDate\bin\Release
+dotnet nuget push ThisDate.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
+
+
+
+Push ThisDate.DefinedCalendars:
+------------------------------
+C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
+dotnet nuget push ThisDate.DefinedCalendars.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
+
+C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
+dotnet nuget push ThisDate.DefinedCalendars.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
+
+
+
+Nuget Install:
+-------------
+Install-Package ThisDate -Version 1.0.0
+Install-Package ThisDate.DefinedCalendars -Version 1.0.0
