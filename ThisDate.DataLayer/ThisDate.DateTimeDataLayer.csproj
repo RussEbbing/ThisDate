@@ -13,7 +13,8 @@
     <Description>Date/Time demenion table builder using ThisDate &amp; ThisDate.DefinedCalendars. ThisDate is a Buildable event (holiday) calendar, date/time extensions. IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November (US Thanksgiving) and more.</Description>
     <PackageProjectUrl>https://russebbing.github.io/ThisDate/</PackageProjectUrl>
     <PackageTags>ThisDate Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate</PackageTags>
-    <PackageIconUrl>ThisDateClock128x128.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/RussEbbing/ThisDate/blob/master/ThisDateClock128x128.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/RussEbbing/ThisDate/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

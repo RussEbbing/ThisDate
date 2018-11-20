@@ -10,14 +10,13 @@ ThisDate extends DateTime with additional time, date, and calendar functionality
 
 This project started as a grossly underestimated private project for building a very detailed data warehouse date/time dimension table set for a project with the New York Stock Exchange calendar. With over 24 time and 36 date related fields, I realized ThisDate had far more reaching capabilities beyond dimension tables.
 
- 
-
-ThisDate is built with .net Core 2.x, Visual Studio 2017, Resharper, fully xUnit and coverage tested, documented using Atomineer and DocFx. The code is installable from NuGit, and open sourced  on GitHub which includes a date/time dimension table builder using Entity Framework Core. 
-
 
 
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+<img src="https://img.shields.io/badge/Coverage-100%25-brightgreen.svg" style="max-width:100%;">
+<img src="https://img.shields.io/chrome-web-store/price/ogffaloegjglncjfehdfplabnoondfjo.svg" style="max-width:100%;">
+
 
 
 ### Install:
@@ -34,8 +33,7 @@ PM> Install-Package ThisDate.DefinedCalendars -Version 1.0.1
 
 ### Documentation
 
-
-[Site](https://russebbing.github.io/ThisDate/)
+[ThisDate ReadMe](https://russebbing.github.io/ThisDate/)
 
 [API CalendarDateTime](api/ThisDate.CalendarDateTime.html)
 
@@ -43,17 +41,17 @@ PM> Install-Package ThisDate.DefinedCalendars -Version 1.0.1
 
 
 
-### nuget
+### Nuget
 
-[ThisDate on nugit](https://www.nuget.org/packages/ThisDate/)
+[ThisDate on Nuget](https://www.nuget.org/packages/ThisDate/)
 
-[ThidDate.DefinedCanlendars](https://www.nuget.org/packages/ThisDate.DefinedCalendars/)
+[ThidDate.DefinedCanlendars on Nuget](https://www.nuget.org/packages/ThisDate.DefinedCalendars/)
 
 
 
-### Source Code
+### GitHub Repository
 
-[GitHub](https://github.com/RussEbbing/ThisDate)
+[ThisDate GitHub Repository](https://github.com/RussEbbing/ThisDate)
 
 
 Solution includes project for building date/time dimension tables, additional documentation, 
@@ -61,16 +59,12 @@ and xUint testing, further documentation.
 
 
 
+## Quick Start:
 
-
-### Quick Start:
-
-1. Install using the Package Manager Console as described in the install section above.
-2. Create a console app on Visual Studio.
-3. Copy/paste the sample code below. 
-4. The sample code loads a a predefined New York Stock Exchange (NYSE) calendar.   
-
-
+1. Create a console app on Visual Studio.
+2. Install using the Package Manager Console or via "Manage Packages for Solution".
+3. Copy/paste the sample code below.
+4. Play.   
 
 
 
@@ -597,13 +591,13 @@ AddMonthlyDayOfWeekReverseEvent(string eventName, bool dayOff, int month,
 var start = new DateTime(1986, 1, 1); 
 CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
         HolidayNames.MartinLutherKingText,  // "Martin Luther King Day"
-        true,								     						// as day off 
-        1,									     						// Month = January
-        3,									     						// Third Monday of the month.
-	    DayOfWeek.Monday,                   	// Day of week (Monday)
-	    start								     							// Starting date, 1/1/1986
-	                                        	// null defaults as DateTime.MaxVlue 
-	                );
+        true,								     // as day off 
+        1,									     // Month = January
+        3,									     // Third Monday of the month.
+	    DayOfWeek.Monday,                   // Day of week (Monday)
+	    start								     // Starting date, 1/1/1986
+	                                        // null defaults as DateTime.MaxVlue 
+);
 
 
 // US Memorial day occurs on the last Monday in May staring in 1868.
@@ -864,12 +858,12 @@ int WeeksInMonth(this DateTime date)
 
 
 
-
-
-## This API is built With the following technologies
+### This API Technologies
 
 - Visual Studio 2017, .net Core 2.x
 - Resharper
+- JetBrains.Anotations
+- CodeMaid
 - xUnit
 - Atomineer
 - DocFx
@@ -879,23 +873,20 @@ The source code for building a Date/Time data warehouse data table.
 
 
 
+### Author
+
+**Russell D Ebbing** -  <RussEbbing@Gmail.com>
+
+### Contributors
 
 
-## Author
-
-- **Russell D Ebbing** - RussEbbing@Gmail.com
-
-
-
-## ArtWorks
+### ArtWorks
 
 <img src="Images\Clock500x500.png" width="60px" /> <img src="Images\CalendarCheckMark500x500.png" width="50px" />
 
-I thank **Chandler Kozak** for his artworks! - Chanenzo@sbcglobal.net 
+I thank **Chandler Kozak** for his artworks! - <Chanenzo@sbcglobal.net> 
 
 
 
-## License
-
+### License
 MIT License
-Copyright (c) 2018 Russell Dion Ebbing (RussEbbing@gmail.com)

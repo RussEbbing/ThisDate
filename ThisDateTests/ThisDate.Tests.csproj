@@ -31,7 +31,9 @@
 
     <NeutralLanguage>en-US</NeutralLanguage>
 
-    <PackageIconUrl>ThisDateClock128x128.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/RussEbbing/ThisDate/blob/master/ThisDateClock128x128.png</PackageIconUrl>
+
+    <PackageLicenseUrl>https://github.com/RussEbbing/ThisDate/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>

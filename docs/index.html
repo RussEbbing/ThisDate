@@ -76,31 +76,32 @@
 <p>ThisDate extends DateTime with additional time, date, and calendar functionality. Rather than hardcoding it’s calendar to CultureInfo, lists, or such, ThisDate utilizes an array of occurrence patterns such as setting “Thanksgiving” as the third Thursday in November etc., therefore ThisDate is configurable for the New York Stock Exchange (NYSE), Federal Holiday calendar, Italian, Indian, Mexican, corporate, or whatever calendar you need.  A sampling of functions include; IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November, EventsOnDate(), EventDatesBetween(), and more.</p>
 <h3 id="modivation">Modivation</h3>
 <p>This project started as a grossly underestimated private project for building a very detailed data warehouse date/time dimension table set for a project with the New York Stock Exchange calendar. With over 24 time and 36 date related fields, I realized ThisDate had far more reaching capabilities beyond dimension tables.</p>
-<p>ThisDate is built with .net Core 2.x, Visual Studio 2017, Resharper, fully xUnit and coverage tested, documented using Atomineer and DocFx. The code is installable from NuGit, and open sourced  on GitHub which includes a date/time dimension table builder using Entity Framework Core.</p>
 <p><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="GitHub">
-<a href="https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></p>
+<a href="https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a>
+<img src="https://img.shields.io/badge/Coverage-100%25-brightgreen.svg" style="max-width:100%;">
+<img src="https://img.shields.io/chrome-web-store/price/ogffaloegjglncjfehdfplabnoondfjo.svg" style="max-width:100%;"></p>
 <h3 id="install">Install:</h3>
 <p>To install ThisDate, run the following command in the Package Manage Console. ThisDate is the core API. ThisDate.DefinedCalendars adds a few pre-defined calendars using ThisDate.</p>
 <pre><code>PM&gt; Install-Package ThisDate -Version 1.0.1
 PM&gt; Install-Package ThisDate.DefinedCalendars -Version 1.0.1
 </code></pre>
 <h3 id="documentation">Documentation</h3>
-<p><a href="https://russebbing.github.io/ThisDate/">Site</a></p>
+<p><a href="https://russebbing.github.io/ThisDate/">ThisDate ReadMe</a></p>
 <p><a href="api/ThisDate.CalendarDateTime.html">API CalendarDateTime</a></p>
 <p><a href="api/index.html">API Index</a></p>
-<h3 id="nuget">nuget</h3>
-<p><a href="https://www.nuget.org/packages/ThisDate/">ThisDate on nugit</a></p>
-<p><a href="https://www.nuget.org/packages/ThisDate.DefinedCalendars/">ThidDate.DefinedCanlendars</a></p>
-<h3 id="source-code">Source Code</h3>
-<p><a href="https://github.com/RussEbbing/ThisDate">GitHub</a></p>
+<h3 id="nuget">Nuget</h3>
+<p><a href="https://www.nuget.org/packages/ThisDate/">ThisDate on Nuget</a></p>
+<p><a href="https://www.nuget.org/packages/ThisDate.DefinedCalendars/">ThidDate.DefinedCanlendars on Nuget</a></p>
+<h3 id="github-repository">GitHub Repository</h3>
+<p><a href="https://github.com/RussEbbing/ThisDate">ThisDate GitHub Repository</a></p>
 <p>Solution includes project for building date/time dimension tables, additional documentation,
 and xUint testing, further documentation.</p>
-<h3 id="quick-start">Quick Start:</h3>
+<h2 id="quick-start">Quick Start:</h2>
 <ol>
-<li>Install using the Package Manager Console as described in the install section above.</li>
 <li>Create a console app on Visual Studio.</li>
+<li>Install using the Package Manager Console or via &quot;Manage Packages for Solution&quot;.</li>
 <li>Copy/paste the sample code below.</li>
-<li>The sample code loads a a predefined New York Stock Exchange (NYSE) calendar.</li>
+<li>Play.</li>
 </ol>
 <h5 id="quick-start-code">Quick Start Code:</h5>
 <pre><code>using System;
@@ -532,13 +533,13 @@ AddMonthlyDayOfWeekReverseEvent(string eventName, bool dayOff, int month,
 var start = new DateTime(1986, 1, 1); 
 CalendarDateTime.AddYearlyDayOfWeekForwardEvent(
         HolidayNames.MartinLutherKingText,  // &quot;Martin Luther King Day&quot;
-        true,								     						// as day off 
-        1,									     						// Month = January
-        3,									     						// Third Monday of the month.
-	    DayOfWeek.Monday,                   	// Day of week (Monday)
-	    start								     							// Starting date, 1/1/1986
-	                                        	// null defaults as DateTime.MaxVlue 
-	                );
+        true,								     // as day off 
+        1,									     // Month = January
+        3,									     // Third Monday of the month.
+	    DayOfWeek.Monday,                   // Day of week (Monday)
+	    start								     // Starting date, 1/1/1986
+	                                        // null defaults as DateTime.MaxVlue 
+);
 
 
 // US Memorial day occurs on the last Monday in May staring in 1868.
@@ -749,10 +750,12 @@ int WeekOfYear(this DateTime dateTime)
 int WeeksInMonth(int year, int month)
 int WeeksInMonth(this DateTime date)
 </code></pre>
-<h2 id="this-api-is-built-with-the-following-technologies">This API is built With the following technologies</h2>
+<h3 id="this-api-technologies">This API Technologies</h3>
 <ul>
 <li>Visual Studio 2017, .net Core 2.x</li>
 <li>Resharper</li>
+<li>JetBrains.Anotations</li>
+<li>CodeMaid</li>
 <li>xUnit</li>
 <li>Atomineer</li>
 <li>DocFx</li>
@@ -761,16 +764,14 @@ int WeeksInMonth(this DateTime date)
 <ul>
 <li>Entity Framework Core</li>
 </ul>
-<h2 id="author">Author</h2>
-<ul>
-<li><strong>Russell D Ebbing</strong> - RussEbbing@Gmail.com</li>
-</ul>
-<h2 id="artworks">ArtWorks</h2>
+<h3 id="author">Author</h3>
+<p><strong>Russell D Ebbing</strong> -  <a href="mailto:RussEbbing@Gmail.com">RussEbbing@Gmail.com</a></p>
+<h3 id="contributors">Contributors</h3>
+<h3 id="artworks">ArtWorks</h3>
 <p><img src="Images/Clock500x500.png" width="60px"> <img src="Images/CalendarCheckMark500x500.png" width="50px"></p>
-<p>I thank <strong>Chandler Kozak</strong> for his artworks! - Chanenzo@sbcglobal.net</p>
-<h2 id="license">License</h2>
-<p>MIT License
-Copyright (c) 2018 Russell Dion Ebbing (RussEbbing@gmail.com)</p>
+<p>I thank <strong>Chandler Kozak</strong> for his artworks! - <a href="mailto:Chanenzo@sbcglobal.net">Chanenzo@sbcglobal.net</a></p>
+<h3 id="license">License</h3>
+<p>MIT License</p>
 </datetime></datetime></string></string></string></string></string></int></int></article>
           </div>
           
