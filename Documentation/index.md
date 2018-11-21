@@ -277,56 +277,56 @@ namespace ThisDate.DefinedCalendars.USA
 		{
 			var start = new DateTime(1492, 1, 1);   // start is when the holiday starts.
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.ColumbusDayText,
- 													dayOff, 10, 2, DayOfWeek.Monday, start);
+ 					                     dayOff, 10, 2, DayOfWeek.Monday, start);
 		}
 	
 		public static void EasterSunday(bool dayOff)
 		{
 			var start = new DateTime(30, 1, 1); // Scolars believe the year was 30 or 33.
 			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.EasterSundayText, 
-                                                    dayOff, start);
+                                       dayOff, start);
 		}
 	
 		public static void FathersDay(bool dayOff)
 		{
 			var start = new DateTime(1910, 1, 1);
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.FathersDayText,
-                                    	             dayOff, 6, 3, DayOfWeek.Sunday, start);
+                                    	 dayOff, 6, 3, DayOfWeek.Sunday, start);
 		}
 	
 		public static void GoodFriday(bool dayOff)
 		{
 			var start = new DateTime(30, 1, 1); // Scholars believe the year 30 or 33.
 			CalendarDateTime.AddYearlyCalculatedEvent(HolidayNames.GoodFridayText,
-        					    							dayOff, start);
+        					    			dayOff, start);
 		}
 	
 		public static void GroundhogDay(bool dayOff)
 		{
 			var start = new DateTime(1887, 1, 1);
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.GroundHogDayText, dayOff, 2, 2,
-    												false, false, start);
+    										false, false, start);
 		}
 	
 		public static void Halloween(bool dayOff)
 		{
 			var start = new DateTime(1850, 1, 1);   // Seems no official start year
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.HalloweenText, dayOff, 10, 31,
-													false, false, start);
+											false, false, start);
 		}
 	
 		public static void IndependenceDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			var start = new DateTime(1776, 1, 1);   // Seems no official start year
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.IndependentsDayText, 
-												dayOff, 7, 4, saturdayBack, sundayForward, start);
+											dayOff, 7, 4, saturdayBack, sundayForward, start);
 		}
 	
 		public static void LaborDay(bool dayOff)
 		{
 			var start = new DateTime(1894, 1, 1);
 			CalendarDateTime.AddYearlyDayOfWeekForwardEvent(HolidayNames.LaborDayText,
-                        								dayOff, 9, 1, DayOfWeek.Monday, start);
+                        					dayOff, 9, 1, DayOfWeek.Monday, start);
 		}
 	
 		public static void MartinLutherKingDay(bool dayOff)
@@ -340,8 +340,8 @@ namespace ThisDate.DefinedCalendars.USA
 		{
 			var startDate = new DateTime(1868, 1, 1);
 			CalendarDateTime.AddYearlyDayOfWeekReverseEvent(
-										HolidayNames.MemorialDayText, dayOff, 5, 1,  
-                                   DayOfWeek.Monday, startDate);
+								HolidayNames.MemorialDayText, dayOff, 5, 1,  
+                            DayOfWeek.Monday, startDate);
 		}
 	
 		public static void MothersDay(bool dayOff)
@@ -355,7 +355,7 @@ namespace ThisDate.DefinedCalendars.USA
 		public static void NewYearsDay(bool dayOff, bool saturdayBack, bool sundayForward)
 		{
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.NewYearsDayText, dayOff, 1, 1, 
-	                                          saturdayBack, sundayForward);
+	                         saturdayBack, sundayForward);
 		}
 	
 		public static void PresidentsDay(bool dayOff)
@@ -385,7 +385,7 @@ namespace ThisDate.DefinedCalendars.USA
 		{
 			var start = new DateTime(300, 1, 1);
 			CalendarDateTime.AddYearlyDateEvent(HolidayNames.ValentinesDayText, 
-							dayOff, 2, 14, false, false, start);
+							    dayOff, 2, 14, false, false, start);
 		}
 	
 		public static void VeteransDay(bool dayOff, bool saturdayBack, bool sundayForward)

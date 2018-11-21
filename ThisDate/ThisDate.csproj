@@ -13,11 +13,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>ThisDate Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate Holidays</PackageTags>
-    <PackageIconUrl>https://github.com/RussEbbing/ThisDate/blob/master/ThisDateClock128x128.png</PackageIconUrl>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <Version>1.0.2</Version>
-    <PackageReleaseNotes>Fix API icon URL, add documenttation.</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/RussEbbing/ThisDate/master/ThisDateClock64x64.png</PackageIconUrl>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>v1.0.2 did not fix the API icon, seems prefixing raw for github is correct (makes sense really). Hense v1.0.3.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

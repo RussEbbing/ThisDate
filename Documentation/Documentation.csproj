@@ -7,6 +7,10 @@
     <Product>ThisDate</Product>
     <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
+    <PackageIconUrl>https://raw.githubusercontent.com/RussEbbing/ThisDate/master/ThisDateClock64x64.png</PackageIconUrl>
+    <PackageProjectUrl>https://russebbing.github.io/ThisDate/</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/RussEbbing/ThisDate/blob/master/LICENSE</PackageLicenseUrl>
+    <Description>ThisDate DocFx documentation.</Description>
   </PropertyGroup>
 
   <ItemGroup>
