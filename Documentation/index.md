@@ -867,6 +867,7 @@ int WeeksInMonth(this DateTime date)
 - xUnit
 - Atomineer
 - DocFx
+- GitKraken
 
 The source code for building a Date/Time data warehouse data table.
 - Entity Framework Core
