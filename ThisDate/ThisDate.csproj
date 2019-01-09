@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFrameworks>netcoreapp2.2;net472;net46;net45</TargetFrameworks>
     <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
     <PackageLicenseUrl>https://github.com/RussEbbing/ThisDate/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyName>ThisDate</AssemblyName>
@@ -17,7 +17,7 @@
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
     <FileVersion>1.0.4.0</FileVersion>
     <Version>1.0.4</Version>
-    <PackageReleaseNotes>v1.0.2 did not fix the API icon, seems prefixing raw for github is correct (makes sense really). Hense v1.0.3.</PackageReleaseNotes>
+    <PackageReleaseNotes>Now supports netcoreapp 2.2, net 4.7.2. 4.6, net 4.5, net 4.0.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
   </ItemGroup>
 
 </Project>

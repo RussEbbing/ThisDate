@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFrameworks>netcoreapp2.2;net472;net46;net45</TargetFrameworks>
     <PackageLicenseUrl>https://github.com/RussEbbing/ThisDate/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyName>ThisDate.DefinedCalendars</AssemblyName>
     <RootNamespace>ThisDate.DefinedCalendars</RootNamespace>
@@ -15,11 +15,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>ThisDate USA NYSE Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate Holidays</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageIconUrl>https://raw.githubusercontent.com/RussEbbing/ThisDate/master/ThisDateClock64x64.png</PackageIconUrl>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>v1.0.2 did not fix the API icon, seems prefixing raw for github is correct (makes sense really). Hense v1.0.3.</PackageReleaseNotes>
+    <PackageIconUrl>https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png</PackageIconUrl>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Now supports netcoreapp 2.2, net 4.7.2. 4.6, net 4.5, net 4.0.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
