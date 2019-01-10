@@ -16,11 +16,11 @@ dotnet nuget push ThisDate.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/ind
 
 Push ThisDate.DefinedCalendars:
 ------------------------------
-C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
-dotnet nuget push ThisDate.DefinedCalendars.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
+cd C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
+dotnet nuget push ThisDate.DefinedCalendars.1.0.5.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
 
-C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
-dotnet nuget push ThisDate.DefinedCalendars.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
+cd C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
+dotnet nuget push ThisDate.DefinedCalendars.1.0.5.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
 
 
 
