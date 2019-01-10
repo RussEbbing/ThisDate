@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.2;net472;net46;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.2;net472;net46;net45</TargetFrameworks>
     <Copyright>Russell Dion Ebbing, Copyright (©) 2018 MIT</Copyright>
     <PackageLicenseUrl>https://github.com/RussEbbing/ThisDate/blob/master/LICENSE</PackageLicenseUrl>
     <AssemblyName>ThisDate</AssemblyName>
@@ -17,7 +17,7 @@
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
     <FileVersion>1.0.4.0</FileVersion>
     <Version>1.0.4</Version>
-    <PackageReleaseNotes>Now supports netcoreapp 2.2, net 4.7.2. 4.6, net 4.5, net 4.0.</PackageReleaseNotes>
+    <PackageReleaseNotes>Now supports netstandard 2.0, netcoreapp 2.2, net 4.7.2. 4.6, net 4.5.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

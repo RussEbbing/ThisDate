@@ -8,6 +8,8 @@ Build will build the contents of the _site folder.
 However, the template is not applide by build. Must issue this command. Folders need to be fully qualified.
 
 
-To build with the template: 
-1) docfx C:\GitHub\ThisDate\Documentation\docfx.json -t C:\GitHub\ThisDate\Documentation\templates\site\default
-2) Copy the contents of _site to the /Docs folder, commit to github.
+To build with the template:
+1) Set Documents => as startup project
+2) Package Manager Console
+3) docfx C:\GitHub\ThisDate\Documentation\docfx.json -t C:\GitHub\ThisDate\Documentation\templates\site\default
+4) Copy the contents of _site to the /Docs folder, commit to github.

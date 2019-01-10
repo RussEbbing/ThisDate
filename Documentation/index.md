@@ -15,11 +15,21 @@ This project started as a grossly underestimated private project for building a 
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 <img src="https://img.shields.io/badge/Coverage-100%25-brightgreen.svg" style="max-width:100%;">
-<img src="https://img.shields.io/chrome-web-store/price/ogffaloegjglncjfehdfplabnoondfjo.svg" style="max-width:100%;">
 
 
 
-### Install:
+### Multi Targeted Frameworks
+
+```
+Net Standard 2.0
+Net Core App 2.2, 2.0
+Net Framework 4.7.2, 4.6, 4.5
+```
+
+
+
+
+### Install
 
 To install ThisDate, run the following command in the Package Manage Console. ThisDate is the core API. ThisDate.DefinedCalendars adds a few pre-defined calendars using ThisDate.
 

@@ -49,11 +49,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.CalculatedEventsText.yml",
+      "source_relative_path": "api/ConsoleApp1.SomeClass.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ThisDate.CalculatedEventsText.html",
-          "hash": "VZfWOkdsjoliSHcvi2G0jA=="
+          "relative_path": "api/ConsoleApp1.SomeClass.html",
+          "hash": "bUNtFZDw3wE0IgMOSQFIUw=="
         }
       },
       "is_incremental": false,
@@ -61,71 +61,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.CalendarDateTime.yml",
+      "source_relative_path": "api/ConsoleApp1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ThisDate.CalendarDateTime.html",
-          "hash": "vlTQEWGXQDO4DqapV2oBnQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.Calendars.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ThisDate.DefinedCalendars.USA.Calendars.html",
-          "hash": "qxxr3XmGth+z1pV6KDnU/w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.HolidayNames.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ThisDate.DefinedCalendars.USA.HolidayNames.html",
-          "hash": "larDFo3bicFRhZTDzlXMhQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.Holidays.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ThisDate.DefinedCalendars.USA.Holidays.html",
-          "hash": "TEaXHeCAcr06wOQDHVlBQQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.DefinedCalendars.USA.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ThisDate.DefinedCalendars.USA.html",
-          "hash": "eDMCRTC348FQ/ZFk0Neg2g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ThisDate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ThisDate.html",
-          "hash": "cU0VYu9ZoXTXjZCXYcIzQg=="
+          "relative_path": "api/ConsoleApp1.html",
+          "hash": "YS7GmSVdclMLWYkDFzrkFQ=="
         }
       },
       "is_incremental": false,
@@ -137,7 +77,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "sXKFq8pvfSsa27vTnPktjA=="
+          "hash": "ZyChDt9lkGnhFIabl1u6CA=="
         }
       },
       "is_incremental": false,
@@ -149,7 +89,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "4g0hZ6LnhOQ2ZcdYx2vA3Q=="
+          "hash": "ZD5ertYSUCaWt1wBMePX9Q=="
         }
       },
       "is_incremental": false,
@@ -164,7 +104,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "SfsBj1bLQSUMCTrKbvFlWw=="
+          "hash": "u7vfRQZD39j7gBMLVQbaUQ=="
         }
       },
       "is_incremental": false,
@@ -190,9 +130,9 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ResourceDocumentProcessor": {
+        "TocDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
@@ -203,9 +143,9 @@
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "TocDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

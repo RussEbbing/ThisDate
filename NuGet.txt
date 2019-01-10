@@ -8,7 +8,8 @@ https://www.youtube.com/watch?v=jU33w5xxYH0
 
 Push ThisDate:
 -------------
-C:\GitHub\ThisDate\ThisDate\bin\Release
+Console
+cd C:\GitHub\ThisDate\ThisDate\bin\Release
 dotnet nuget push ThisDate.1.0.0.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
 
 
