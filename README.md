@@ -1,4 +1,4 @@
-<img src="https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png" width="68px" /> 
+<img src="https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png" width="70px" /> 
 
 # ThisDate
 
@@ -179,7 +179,8 @@ namespace ConsoleApp1
 }
 ```
 
-<img src="Images\CalendarCheckMark500x500.png" width="130px" />
+
+<img src="https://github.com/RussEbbing/ThisDate/raw/master/CalendarCheckMark500x500.png" width="60px" />
 
 
 
@@ -694,8 +695,7 @@ ImmutableArray<string> KeysYearlyEvents
 ClearCalendar()
 
 // Returns all events between two dates.
-ImmutableArray<DateTime> EventDatesBetween(this string eventName, 
-                            DateTime? date1 = null, DateTime? date2 = null)
+ImmutableArray<DateTime> EventDatesBetween(this string eventName, DateTime? date1 = null, DateTime? date2 = null)
 
 // Returns all events withing two years.
 ImmutableArray<DateTime> EventDatesBetween(this string eventName, int? year1, int? year2) 
@@ -838,7 +838,8 @@ The source code for building a Date/Time data warehouse data table.
 
 ### ArtWorks
 
-<img src="https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png" width="60px" />
+<img src="https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png" width="45px" /> 
+<img src="https://github.com/RussEbbing/ThisDate/raw/master/CalendarCheckMark500x500.png" width="45px" />
 
 I thank **Chandler Kozak** for his artworks! - <Chanenzo@sbcglobal.net> 
 
