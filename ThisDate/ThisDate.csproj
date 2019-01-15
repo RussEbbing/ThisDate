@@ -8,16 +8,16 @@
     <Authors>Russell Dion Ebbing (RussEbbing@Gmail.com)</Authors>
     <RepositoryUrl>https://github.com/RussEbbing/ThisDate</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>Buildable event and holiday calendar by calendar patterns. DateTime extensions. IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November (US Thanksgiving) and more.</Description>
+    <Description>Buildable event and holiday calendar by calendar patterns. DateTime extensions. IsWorkday(), AddWorkdays(), time rounding, IsLastWeekMonth(), get the 3rd Thursday of November (US Thanksgiving), IsDayOff(),  IsBetweenEqual(DateTime, DateTime), IsLeapYear(), IsNthDayOfWeek(), IsLastDayOfYear() and more.</Description>
     <PackageProjectUrl>https://russebbing.github.io/ThisDate/</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>ThisDate Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate Holidays</PackageTags>
     <PackageIconUrl>https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png</PackageIconUrl>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>Now supports netstandard 2.0, netcoreapp 2.2, net 4.7.2. 4.6, net 4.5.</PackageReleaseNotes>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Add new method, DateTime ToLastTick(this date).</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

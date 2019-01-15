@@ -27,8 +27,8 @@ namespace ThisDate.Tests
 		public static void AddMonthlyDayOfWeekReverseEventsInRange()
 		{
 			var eventName = "someName";
-			var start = _startTestDate;
-			var end = _endTestDate.LastDateOfMonth();
+			var start = StartTestDate;
+			var end = EndTestDate.LastDateOfMonth();
 			CalendarDateTime.ClearCalendar();
 
 			CalendarDateTime.AddMonthlyDayOfWeekReverseEvent(eventName, true, DayOfWeek.Monday, 1, start, end); // Last Monday of every month
@@ -123,15 +123,15 @@ namespace ThisDate.Tests
 			var event1Name = "Workday1";
 			const bool event1OffDay = false;
 			var event1Day = 12;
-			var firstValidDate = _startTestDate.AddYears(5);
-			var lastValidDate = _endTestDate.AddYears(-5);
+			var firstValidDate = StartTestDate.AddYears(5);
+			var lastValidDate = EndTestDate.AddYears(-5);
 
 			Assert.Equal(0, CalendarDateTime.CountEvents);
 			CalendarDateTime.AddMonthlyDateEvent(event1Name, event1OffDay, event1Day, firstValidDate, lastValidDate);
 			Assert.Equal(1, CalendarDateTime.CountMonthlyEvents);
 			Assert.Equal(1, CalendarDateTime.CountEvents);
 
-			for (var currentDate = _startTestDate; currentDate <= _endTestDate; currentDate = currentDate.AddDays(1))
+			for (var currentDate = StartTestDate; currentDate <= EndTestDate; currentDate = currentDate.AddDays(1))
 			{
 				Assert.Equal(currentDate.IsDayOff(), event1OffDay);
 				Assert.Equal(currentDate.IsWorkDay(), !event1OffDay);
@@ -321,14 +321,14 @@ namespace ThisDate.Tests
 			var reportWeeks = new List<int> { 1, 3 };
 			var paydayWeeks = new List<int> { 2, 4 };
 			var testDayOfWeek = DayOfWeek.Thursday;
-			var testStartRange = _startTestDate.AddYears(5);
-			var testEndRange = _endTestDate.AddYears(-5);
+			var testStartRange = StartTestDate.AddYears(5);
+			var testEndRange = EndTestDate.AddYears(-5);
 			CalendarDateTime.ClearCalendar();
 			CalendarDateTime.AddWeeklyInMonthEvent(reportDayEvent, false, testDayOfWeek, reportWeeks, testStartRange, testEndRange);
 			CalendarDateTime.AddWeeklyInMonthEvent(payDayEvent, false, testDayOfWeek, paydayWeeks, testStartRange, testEndRange);
 			var currentWeek = -99;
 
-			for (var currentDate = _startTestDate; currentDate <= _endTestDate; currentDate = currentDate.AddDays(1))
+			for (var currentDate = StartTestDate; currentDate <= EndTestDate; currentDate = currentDate.AddDays(1))
 			{
 				var actual = currentDate.EventsOnDate(true, true);
 				if (!currentDate.IsBetweenEqual(testStartRange, testEndRange))

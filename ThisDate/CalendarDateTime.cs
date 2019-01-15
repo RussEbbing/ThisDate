@@ -780,10 +780,10 @@ namespace ThisDate
 		/// <example>
 		/// 	<code>
 		/// 	var dateTime = new DateTime(2018, 5, 21, 23, 36, 47, 854);
-		/// 	
+		///
 		/// 	// Round to the day.
 		/// 	var timeSpan = new TimeSpan(1, 0, 0, 0);
-		/// 	
+		///
 		/// 	var result = dateTime.RoundToInterval(timeSpan);
 		/// 	//	result = {5/22/2018 12:00:00 AM}
 		/// 	</code>
@@ -793,28 +793,6 @@ namespace ThisDate
 		{
 			var halfInterval = (interval.Ticks + 1) >> 1;
 			return date.AddTicks(halfInterval - ((date.Ticks + halfInterval) % interval.Ticks));
-		}
-
-		///-------------------------------------------------------------------------------------------------
-		/// <summary>	A DateTime extension method returns the date to the last tick of the day. </summary>
-		/// <param name="date">	The date. </param>
-		/// <returns>	Date as a DateTime. </returns>
-		/// <example>
-		/// 	<code>
-		/// 	var date = new DateTime(2019, 1, 10, 19, 36, 47, 20);
-		/// 	var endOfDay = date.ToLastTick();
-		/// 	// endOfDay = "2019/1/11 23:59:59.9999999"
-		/// 	
-		/// 	List&lt;DateTime&gt; dates = GetBunchOfDates();
-		/// 	var date = DateTime.Now;
-		/// 	var results = dates.Where(d =&gt; IsBetween(date.Date, date.ToLastTick());
-		/// 	// results = {all dates today)}
-		/// 	</code>
-		/// </example>
-		///-------------------------------------------------------------------------------------------------
-		public static DateTime ToLastTick(this DateTime date)
-		{
-			return date.Date.AddDays(1).AddTicks(-1);
 		}
 
 		///-------------------------------------------------------------------------------------------------
@@ -988,6 +966,28 @@ namespace ThisDate
 		{
 			var dateId = date.RoundToSecond();
 			return dateId.TimeId();
+		}
+
+		///-------------------------------------------------------------------------------------------------
+		/// <summary>	A DateTime extension method returns the date to the last tick of the day. </summary>
+		/// <param name="date">	The date. </param>
+		/// <returns>	Date as a DateTime. </returns>
+		/// <example>
+		/// 	<code>
+		/// 	var date = new DateTime(2019, 1, 10, 19, 36, 47, 20);
+		/// 	var endOfDay = date.ToLastTick();
+		/// 	// endOfDay = "2019/1/11 23:59:59.9999999"
+		///
+		/// 	List&lt;DateTime&gt; dates = GetBunchOfDates();
+		/// 	var date = DateTime.Now;
+		/// 	var results = dates.Where(d =&gt; IsBetween(date.Date, date.ToLastTick());
+		/// 	// results = {all dates today)}
+		/// 	</code>
+		/// </example>
+		///-------------------------------------------------------------------------------------------------
+		public static DateTime ToLastTick(this DateTime date)
+		{
+			return date.Date.AddDays(1).AddTicks(-1);
 		}
 
 		///-------------------------------------------------------------------------------------------------

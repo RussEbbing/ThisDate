@@ -21,10 +21,3 @@ dotnet nuget push ThisDate.DefinedCalendars.1.0.5.nupkg -k ApiKey -s https://api
 
 cd C:\GitHub\ThisDate\ThisDate.DefinedCalendars\bin\Release
 dotnet nuget push ThisDate.DefinedCalendars.1.0.5.nupkg -k ApiKey -s https://api.nuget.org/v3/index.json
-
-
-
-Nuget Install:
--------------
-Install-Package ThisDate -Version 1.0.0
-Install-Package ThisDate.DefinedCalendars -Version 1.0.0

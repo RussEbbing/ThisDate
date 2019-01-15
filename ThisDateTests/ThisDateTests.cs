@@ -9,8 +9,8 @@ namespace ThisDate.Tests
 {
 	public partial class ThisDateTests
 	{
-		private static readonly DateTime _endTestDate = new DateTime(2100, 12, 31);
-		private static readonly DateTime _startTestDate = new DateTime(1900, 1, 1);
+		private static readonly DateTime EndTestDate = new DateTime(2100, 12, 31);
+		private static readonly DateTime StartTestDate = new DateTime(1900, 1, 1);
 
 		[Fact]
 		public void AddWorkdaysNegToNewYearsNyse()
@@ -129,7 +129,7 @@ namespace ThisDate.Tests
 		[Fact]
 		public void DayOfWeekCountIntoMonth()
 		{
-			for (var date = _startTestDate; date <= _endTestDate; date = date.AddDays(1))
+			for (var date = StartTestDate; date <= EndTestDate; date = date.AddDays(1))
 			{
 				var expected = 1;
 				for (var d = date.AddDays(-7); d.Month == date.Month; d = d.AddDays(-7))
@@ -145,7 +145,7 @@ namespace ThisDate.Tests
 		[Fact]
 		public void DayOfWeekCountIntoYear()
 		{
-			for (var date = _startTestDate; date <= _endTestDate; date = date.AddDays(1))
+			for (var date = StartTestDate; date <= EndTestDate; date = date.AddDays(1))
 			{
 				var expected = 1;
 				for (var d = date.AddDays(-7); d.Year == date.Year; d = d.AddDays(-7))
@@ -433,10 +433,10 @@ namespace ThisDate.Tests
 		[Fact]
 		public void GetWeekOfMonthMultipleYears()
 		{
-			var date = _startTestDate;
+			var date = StartTestDate;
 			var week = 0;
 
-			while (date.Year <= _endTestDate.Year)
+			while (date.Year <= EndTestDate.Year)
 			{
 				if (date.Day == 1)
 					week = 1;
@@ -468,10 +468,10 @@ namespace ThisDate.Tests
 		[Fact]
 		public void GetWeekOfYearMultipleYears()
 		{
-			var date = _startTestDate;
+			var date = StartTestDate;
 			var week = 0;
 
-			while (date.Year <= _endTestDate.Year)
+			while (date.Year <= EndTestDate.Year)
 			{
 				if (date.Month == 1 && date.Day == 1)
 					week = 1;
@@ -571,7 +571,7 @@ namespace ThisDate.Tests
 		[Fact]
 		public void IsFirstDayOfMonth()
 		{
-			for (var currentDate = _startTestDate; currentDate <= _endTestDate; currentDate = currentDate.AddDays(1))
+			for (var currentDate = StartTestDate; currentDate <= EndTestDate; currentDate = currentDate.AddDays(1))
 			{
 				var expected = currentDate.Day == 1;
 				var actual = currentDate.IsFirstDayOfMonth();
@@ -589,10 +589,10 @@ namespace ThisDate.Tests
 		[Fact]
 		public void IsFirstWeekOfMonth()
 		{
-			var currentDate = _startTestDate;
+			var currentDate = StartTestDate;
 			var currentWeek = 1;
 
-			while (currentDate <= _endTestDate)
+			while (currentDate <= EndTestDate)
 			{
 				var expected = currentWeek == 1;
 				var actual = currentDate.IsFirstWeekOfMonth();
@@ -616,8 +616,8 @@ namespace ThisDate.Tests
 		[Fact]
 		public void IsLastDayOfMonthMultipleYears()
 		{
-			var date = _startTestDate;
-			while (date <= _startTestDate)
+			var date = StartTestDate;
+			while (date <= StartTestDate)
 			{
 				var lastMonthDay = new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
 				var expected = lastMonthDay == date;
@@ -637,8 +637,8 @@ namespace ThisDate.Tests
 		[Fact]
 		public void IsLastWeekOfMonthMultipleYears()
 		{
-			var date = _startTestDate;
-			while (date <= _startTestDate)
+			var date = StartTestDate;
+			while (date <= StartTestDate)
 			{
 				var lastMonthDay = new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
 				var lastSunday = lastMonthDay;
@@ -663,10 +663,10 @@ namespace ThisDate.Tests
 		public void IsNthDayOfWeek3RdThursdayAllMonths()
 		{
 			const int count = 3;
-			var currentDate = _startTestDate;
+			var currentDate = StartTestDate;
 			var nthThursday = 0;
 
-			while (currentDate <= _endTestDate)
+			while (currentDate <= EndTestDate)
 			{
 				if (currentDate.Day == 1)
 					nthThursday = 0;
@@ -697,9 +697,9 @@ namespace ThisDate.Tests
 			CalendarDateTime.ClearCalendar();
 			CalendarDateTime.AddWeeklyInMonthEvent("FirstThird", true, testDayOfWeek, new List<int> { 1, 3 });
 			var occurrence = -99;
-			var currentDate = _startTestDate;
+			var currentDate = StartTestDate;
 			var dayOfWeekInc = currentDate.DayOfWeek;
-			var dateEnd = _endTestDate;
+			var dateEnd = EndTestDate;
 			while (currentDate <= dateEnd)
 			{
 				if (currentDate.Day == 1)
@@ -724,8 +724,8 @@ namespace ThisDate.Tests
 		{
 			CalendarDateTime.ClearCalendar();
 			CalendarDateTime.AddWeeklyInMonthEvent(DayOfWeek.Saturday.ToString(), true, DayOfWeek.Saturday);
-			var currentDate = _startTestDate;
-			var dateEnd = _endTestDate;
+			var currentDate = StartTestDate;
+			var dateEnd = EndTestDate;
 			while (currentDate <= dateEnd)
 			{
 				var expected = currentDate.DayOfWeek == DayOfWeek.Saturday;
@@ -741,8 +741,8 @@ namespace ThisDate.Tests
 			CalendarDateTime.ClearCalendar();
 			Holidays.WeeklyDayOff(DayOfWeek.Saturday);
 			Holidays.WeeklyDayOff(DayOfWeek.Sunday);
-			var currentDate = _startTestDate;
-			var dateEnd = _endTestDate;
+			var currentDate = StartTestDate;
+			var dateEnd = EndTestDate;
 			while (currentDate <= dateEnd)
 			{
 				var expected = currentDate.DayOfWeek == DayOfWeek.Saturday || currentDate.DayOfWeek == DayOfWeek.Sunday;
@@ -755,9 +755,9 @@ namespace ThisDate.Tests
 		[Fact]
 		public void IsWeekDayAll()
 		{
-			var currentDate = _startTestDate;
+			var currentDate = StartTestDate;
 
-			while (currentDate <= _endTestDate)
+			while (currentDate <= EndTestDate)
 			{
 				var expected = currentDate.DayOfWeek == DayOfWeek.Monday || currentDate.DayOfWeek == DayOfWeek.Tuesday
 							   || currentDate.DayOfWeek == DayOfWeek.Wednesday || currentDate.DayOfWeek == DayOfWeek.Thursday
@@ -777,9 +777,9 @@ namespace ThisDate.Tests
 		[Fact]
 		public void IsWeekend()
 		{
-			var currentDate = _startTestDate;
+			var currentDate = StartTestDate;
 
-			while (currentDate <= _endTestDate)
+			while (currentDate <= EndTestDate)
 			{
 				var expected = currentDate.DayOfWeek == DayOfWeek.Saturday || currentDate.DayOfWeek == DayOfWeek.Sunday;
 				Assert.True(expected == currentDate.IsWeekend());
@@ -826,7 +826,7 @@ namespace ThisDate.Tests
 			var month = -1;
 			var lastDay = DateTime.MaxValue;
 
-			for (var date = _endTestDate; date >= _startTestDate; date = date.AddDays(-1))
+			for (var date = EndTestDate; date >= StartTestDate; date = date.AddDays(-1))
 			{
 				if (date.Month != month)
 				{
@@ -1032,9 +1032,22 @@ namespace ThisDate.Tests
 		}
 
 		[Fact]
+		public void ToLastTick()
+		{
+			var random = new Random();
+			for (var i = 0; i < 50; i++)
+			{
+				var r = RandomDate(random);
+				var a = r.ToLastTick().AddTicks(1);
+				var e = r.AddDays(1).Date;
+				Assert.Equal(e, a);
+			}
+		}
+
+		[Fact]
 		public void WeekendAdjustDate()
 		{
-			for (var date = _startTestDate; date <= _endTestDate; date = date.AddDays(1))
+			for (var date = StartTestDate; date <= EndTestDate; date = date.AddDays(1))
 			{
 				var expected = date;
 
@@ -1060,7 +1073,7 @@ namespace ThisDate.Tests
 			var currentMonth = -1;
 			var weekCounter = -1;
 
-			for (var date = _startTestDate; date <= _endTestDate; date = date.AddDays(1))
+			for (var date = StartTestDate; date <= EndTestDate; date = date.AddDays(1))
 			{
 				if (date.Month != currentMonth)
 				{
@@ -1103,6 +1116,27 @@ namespace ThisDate.Tests
 		{
 			var lowYear = DateTime.MinValue.Year - 1;
 			Assert.Throws<ArgumentOutOfRangeException>(() => CalendarDateTime.WeeksInMonth(lowYear, 5));
+		}
+
+		///-------------------------------------------------------------------------------------------------
+		/// <summary>	Random date generator. </summary>
+		///
+		/// <param name="random">	The random object. </param>
+		///
+		/// <returns>	A DateTime. </returns>
+		///-------------------------------------------------------------------------------------------------
+		private DateTime RandomDate(Random random)
+		{
+			var year = random.Next(DateTime.MinValue.Year, DateTime.MaxValue.Year);
+			var month = random.Next(1, 12);
+			var monthMax = ThisDate.CalendarDateTime.LastDateOfMonth(year, month).Day;
+			var day = random.Next(1, monthMax);
+			var hour = random.Next(1, 23);
+			var min = random.Next(1, 59);
+			var sec = random.Next(1, 59);
+			var mSec = random.Next(1, 999);
+			var date = new DateTime(year: year, month: month, day: day, hour: hour, minute: min, second: sec, millisecond: mSec);
+			return date;
 		}
 	}
 }

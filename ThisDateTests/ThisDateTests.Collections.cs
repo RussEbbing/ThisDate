@@ -263,8 +263,8 @@ namespace ThisDate.Tests
 		{
 			CalendarDateTime.ClearCalendar();
 			Holidays.NewYearsDay(true, false, false);
-			var expected = Enumerable.Range(_startTestDate.Year, _endTestDate.Year - _startTestDate.Year + 1).Select(s => new DateTime(s, 1, 1));
-			var actual = HolidayNames.NewYearsDayText.EventDatesBetween(_endTestDate.Year, _startTestDate.Year);
+			var expected = Enumerable.Range(StartTestDate.Year, EndTestDate.Year - StartTestDate.Year + 1).Select(s => new DateTime(s, 1, 1));
+			var actual = HolidayNames.NewYearsDayText.EventDatesBetween(EndTestDate.Year, StartTestDate.Year);
 			Assert.Equal(expected, actual);
 		}
 
@@ -314,15 +314,15 @@ namespace ThisDate.Tests
 			var testDayName = "testDaDate";
 			const int testDay = 12;
 			var expected = new List<DateTime>();
-			var start = new DateTime(_startTestDate.Year, _startTestDate.Month, testDay);
-			for (var date = start; date <= _endTestDate; date = date.AddMonths(1))
+			var start = new DateTime(StartTestDate.Year, StartTestDate.Month, testDay);
+			for (var date = start; date <= EndTestDate; date = date.AddMonths(1))
 			{
 				expected.Add(date);
 			}
 
 			CalendarDateTime.ClearCalendar();
-			CalendarDateTime.AddMonthlyDateEvent(testDayName, false, testDay, _endTestDate, _startTestDate);
-			var actual = testDayName.EventDatesBetween(_endTestDate, _startTestDate);
+			CalendarDateTime.AddMonthlyDateEvent(testDayName, false, testDay, EndTestDate, StartTestDate);
+			var actual = testDayName.EventDatesBetween(EndTestDate, StartTestDate);
 
 			Assert.Equal(expected, actual);
 		}
@@ -450,11 +450,11 @@ namespace ThisDate.Tests
 			const DayOfWeek targetDayOfWeek = DayOfWeek.Wednesday;
 
 			CalendarDateTime.ClearCalendar();
-			CalendarDateTime.AddMonthlyDayOfWeekForwardEvent(eventName, true, targetDayOfWeek, targetWeek, _startTestDate, _endTestDate);
-			var actual = eventName.EventDatesBetween(_startTestDate, _endTestDate);
+			CalendarDateTime.AddMonthlyDayOfWeekForwardEvent(eventName, true, targetDayOfWeek, targetWeek, StartTestDate, EndTestDate);
+			var actual = eventName.EventDatesBetween(StartTestDate, EndTestDate);
 			var expected = new List<DateTime>();
 			var week = 0;
-			for (var date = _startTestDate; date <= _endTestDate; date = date.AddDays(1))
+			for (var date = StartTestDate; date <= EndTestDate; date = date.AddDays(1))
 			{
 				if (date.IsFirstDayOfMonth())
 				{
@@ -484,11 +484,11 @@ namespace ThisDate.Tests
 			const DayOfWeek targetDayOfWeek = DayOfWeek.Wednesday;
 
 			CalendarDateTime.ClearCalendar();
-			CalendarDateTime.AddMonthlyDayOfWeekReverseEvent(eventName, true, targetDayOfWeek, targetWeek, _startTestDate, _endTestDate);
-			var actual = eventName.EventDatesBetween(_startTestDate, _endTestDate);
+			CalendarDateTime.AddMonthlyDayOfWeekReverseEvent(eventName, true, targetDayOfWeek, targetWeek, StartTestDate, EndTestDate);
+			var actual = eventName.EventDatesBetween(StartTestDate, EndTestDate);
 			var expected = new List<DateTime>();
 			int week = 0;
-			for (var date = _endTestDate; date >= _startTestDate; date = date.AddDays(-1))
+			for (var date = EndTestDate; date >= StartTestDate; date = date.AddDays(-1))
 			{
 				if (date.IsLastDayOfMonth())
 				{
