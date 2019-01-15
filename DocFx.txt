@@ -9,6 +9,7 @@ However, the template is not applide by build. Must issue this command. Folders 
 
 
 To build with the template:
+1) Verify version in Package Manager, in all places.
 1) Set Documents => as startup project
 2) Package Manager Console
 3) docfx C:\GitHub\ThisDate\Documentation\docfx.json -t C:\GitHub\ThisDate\Documentation\templates\site\default

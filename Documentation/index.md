@@ -34,10 +34,9 @@ Net Framework 4.7.2, 4.6, 4.5
 To install ThisDate, run the following command in the Package Manage Console. ThisDate is the core API. ThisDate.DefinedCalendars adds a few pre-defined calendars using ThisDate.
 
 ```
-PM> Install-Package ThisDate -Version 1.0.1
-PM> Install-Package ThisDate.DefinedCalendars -Version 1.0.1
+PM> Install-Package ThisDate -Version 1.0.5
+PM> Install-Package ThisDate.DefinedCalendars -Version 1.0.4
 ```
-
 
 
 
