@@ -311,6 +311,46 @@ namespace ThisDate
 		}
 
 		///-------------------------------------------------------------------------------------------------
+		/// <summary>	Adds a weekly in month event where event names are DaysOfWeek.ToString(). </summary>
+		///
+		/// <remarks>
+		/// 	Adds weekly day-of-week events, can occur on multiple days of the week and at some
+		/// 	interval by week. If the interval is null, all weeks [1...5.] are added, the 5th week
+		/// 	does not occur every month. Its possible to set an odd pattern such as 1rst, 2nd week of
+		/// 	every month.
+		/// </remarks>
+		///
+		/// <exception cref="ArgumentNullException">
+		/// 	Thrown when eventName is null or empty.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// 	Thrown when eventName is not unique or startDate > endDate.
+		/// </exception>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// 	Thrown when interval is less than 1 or greater than 5.
+		/// </exception>
+		///
+		/// <param name="dayOff">   	True if is a day off (is a workday). </param>
+		/// <param name="dayOfWeek">	The day of week. </param>
+		/// <param name="weekIntervals">	(Optional) The weekly intervals, If null every week, 1: 1 first week, 2: second week, 3: third week... Not every month will have a fifth week. </param>
+		/// <param name="startDate">	(Optional) The date start, DateTime.MinValue if null. </param>
+		/// <param name="endDate">  	(Optional) The date end, DateTime.MaxValue if null. </param>
+		///
+		/// <example>
+		/// 	<code>
+		/// 	// Mondays, first and third week.
+		/// 	var weekIntervals = new int[] {1, 3};
+		/// 	CalendarDateTime.AddWeeklyInMonthEvent(false, DayOfWeek.Monday, weekIntervals);
+		/// 	</code>
+		/// </example>
+		///-------------------------------------------------------------------------------------------------
+
+		public static void AddWeeklyInMonthEvent(bool dayOff, DayOfWeek dayOfWeek, [CanBeNull] IEnumerable<int> weekIntervals = null, DateTime? startDate = null, DateTime? endDate = null)
+		{
+			AddWeeklyInMonthEvent(dayOff.ToString(), dayOff, dayOfWeek, weekIntervals, startDate, endDate);
+		}
+		
+		///-------------------------------------------------------------------------------------------------
 		/// <summary>	Adds a weekly in month event. </summary>
 		///
 		/// <remarks>
@@ -373,6 +413,8 @@ namespace ThisDate
 			var dateRange = new MinMaxSwapDate(startDate, endDate);
 			WeeklyEventsDictionary.Add(eventName, new WeeklyInMonthEvent(dayOff, dayOfWeek, weekIntervals, dateRange.Min, dateRange.Max));
 		}
+
+
 
 		///-------------------------------------------------------------------------------------------------
 		/// <summary>	Adds a yearly calculated event. </summary>

@@ -188,13 +188,6 @@
              <value>	The veterans day text. </value>
             -------------------------------------------------------------------------------------------------
         </member>
-        <member name="P:ThisDate.DefinedCalendars.USA.HolidayNames.WeekendText">
-            -------------------------------------------------------------------------------------------------
-             <summary>	Weekend text. </summary>
-            
-             <value>	The weekend text. </value>
-            -------------------------------------------------------------------------------------------------
-        </member>
         <member name="T:ThisDate.DefinedCalendars.USA.Holidays">
             <summary>	USA calendar configuration. </summary>
         </member>
@@ -446,18 +439,6 @@
              	<code>
              	// using ThisDate.DefinedCalendars.USA;
              	CalendarDateTime.VeteransDay(false);
-             	</code>
-             </example>
-            -------------------------------------------------------------------------------------------------
-        </member>
-        <member name="M:ThisDate.DefinedCalendars.USA.Holidays.Weekends">
-            -------------------------------------------------------------------------------------------------
-             <summary>	Add weekly day-of-week day off. </summary>
-            
-             <example>
-             	<code>
-             	// using ThisDate.DefinedCalendars.USA;
-             	CalendarDateTime.Weekends();
              	</code>
              </example>
             -------------------------------------------------------------------------------------------------

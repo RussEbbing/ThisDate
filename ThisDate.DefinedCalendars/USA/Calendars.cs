@@ -1,4 +1,6 @@
-﻿namespace ThisDate.DefinedCalendars.USA
+﻿using System;
+
+namespace ThisDate.DefinedCalendars.USA
 {
 	///-------------------------------------------------------------------------------------------------
 	/// <summary>	USA calendars. </summary>
@@ -32,7 +34,8 @@
 			Holidays.LaborDay(true);
 			Holidays.ThanksgivingDay(true);
 			Holidays.ChristmasDay(true, true, true);
-			Holidays.Weekends();
+			Holidays.WeeklyDayOff(DayOfWeek.Saturday);
+			Holidays.WeeklyDayOff(DayOfWeek.Sunday);
 		}
 
 		///-------------------------------------------------------------------------------------------------
@@ -61,7 +64,8 @@
 			Holidays.VeteransDay(true, true, true);
 			Holidays.ThanksgivingDay(true);
 			Holidays.ChristmasDay(true, true, true);
-			Holidays.Weekends();
+			Holidays.WeeklyDayOff(DayOfWeek.Saturday);
+			Holidays.WeeklyDayOff(DayOfWeek.Sunday);
 		}
 
 		///-------------------------------------------------------------------------------------------------
@@ -90,7 +94,8 @@
 			Holidays.VeteransDay(false, true, true);
 			Holidays.ThanksgivingDay(true);
 			Holidays.ChristmasDay(true, true, true);
-			Holidays.Weekends();
+			Holidays.WeeklyDayOff(DayOfWeek.Saturday);
+			Holidays.WeeklyDayOff(DayOfWeek.Sunday);
 
 			Holidays.ValentinesDay(false);
 			Holidays.MothersDay(false);

@@ -328,22 +328,6 @@ namespace ThisDate.DefinedCalendars.USA
 		}
 
 		///-------------------------------------------------------------------------------------------------
-		/// <summary>	Add weekly day-of-week day off. </summary>
-		///
-		/// <example>
-		/// 	<code>
-		/// 	// using ThisDate.DefinedCalendars.USA;
-		/// 	CalendarDateTime.Weekends();
-		/// 	</code>
-		/// </example>
-		///-------------------------------------------------------------------------------------------------
-		public static void Weekends()
-		{
-			var daysOfWeek = new DayOfWeek[] { DayOfWeek.Sunday, DayOfWeek.Saturday };
-			CalendarDateTime.AddWeeklyEvent(HolidayNames.WeekendText, true, daysOfWeek);
-		}
-
-		///-------------------------------------------------------------------------------------------------
 		/// <summary>	Weekly day off. </summary>
 		///
 		/// <param name="dayOfWeek">	The day of week. </param>

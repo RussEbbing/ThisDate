@@ -16,10 +16,10 @@
     <PackageTags>ThisDate USA NYSE Calendar Date Time DateTime Daily Weekly Monthly Yearly AddWorkdays IsWorkday EventsOnDate Holidays</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageIconUrl>https://github.com/RussEbbing/ThisDate/raw/master/ThisDateClock128x128.png</PackageIconUrl>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>Now supports netstandard 2.0, netcoreapp 2.2, net 4.7.2. 4.6, net 4.5.</PackageReleaseNotes>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Remove Weekends() for consistancey reasons and easier edit confrol by not grouping. Instead use Saturday and Sunday explictly. Begin staging for additional calendars,.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -32,6 +32,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ThisDate\ThisDate.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Canada\" />
   </ItemGroup>
 
 </Project>

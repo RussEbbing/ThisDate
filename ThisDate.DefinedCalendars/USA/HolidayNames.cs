@@ -131,12 +131,5 @@ namespace ThisDate.DefinedCalendars.USA
 		/// <value>	The veterans day text. </value>
 		///-------------------------------------------------------------------------------------------------
 		[NotNull] public static string VeteransDayText => "Veteran's Day";
-
-		///-------------------------------------------------------------------------------------------------
-		/// <summary>	Weekend text. </summary>
-		///
-		/// <value>	The weekend text. </value>
-		///-------------------------------------------------------------------------------------------------
-		[NotNull] public static string WeekendText => "Weekend";
 	}
 }

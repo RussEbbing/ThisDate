@@ -105,11 +105,6 @@ namespace ThisDate.Tests
 					expected.Add(expectedHoliday.Name);
 				}
 
-				if (expectedHoliday.Date.DayOfWeek == DayOfWeek.Saturday || expectedHoliday.Date.DayOfWeek == DayOfWeek.Sunday)
-				{
-					expected.Add(HolidayNames.WeekendText);
-				}
-
 				var actual = expectedHoliday.Date.EventsOnDate(true, true);
 				Assert.NotStrictEqual(actual.ToList(), expected);
 				Assert.True(expectedHoliday.Date.IsWorkDay() == expectedHoliday.IsWorkday,
