@@ -395,8 +395,11 @@ namespace ThisDate
 			var m = MonthlyEventsDictionary.Any(v => v.Value.DayOff && v.Value.Date(date.Year, date.Month) == date);
 			var w = WeeklyEventsDictionary.Any(v => v.Value.DayOff && v.Value.IsEventDay(date));
 			var a = DateEventsDictionary.Any(v => v.Value.DayOff && v.Value.Date == date);
-			return p || m || w || a;
-		}
+            // Special case:  SaturdayBack/SundayForward for December 31 or January 1
+            var s = YearlyEventsDictionary.Any(ev => ev.Value.DayOff && Math.Abs(date.Subtract(ev.Value.Date(date.Year) ?? DateTime.MaxValue).Days) <= 1);
+
+            return p || m || w || a || s;
+        }
 
 		///-------------------------------------------------------------------------------------------------
 		/// <summary>	A DateTime extension method that query if 'date' is first day of month. </summary>
