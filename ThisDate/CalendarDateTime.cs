@@ -395,10 +395,11 @@ namespace ThisDate
 			var m = MonthlyEventsDictionary.Any(v => v.Value.DayOff && v.Value.Date(date.Year, date.Month) == date);
 			var w = WeeklyEventsDictionary.Any(v => v.Value.DayOff && v.Value.IsEventDay(date));
 			var a = DateEventsDictionary.Any(v => v.Value.DayOff && v.Value.Date == date);
-            // Special case:  SaturdayBack/SundayForward for December 31 or January 1
-            var s = YearlyEventsDictionary.Any(ev => ev.Value.DayOff && Math.Abs(date.Subtract(ev.Value.Date(date.Year) ?? DateTime.MaxValue).Days) <= 1);
+			// Special case:  SaturdayBack/SundayForward for December 31 or January 1
+			var sf = YearlyEventsDictionary.Any(ev => ev.Value.DayOff && Math.Abs(date.Subtract(ev.Value.Date(date.Year + 1) ?? DateTime.MaxValue).Days) <= 1);
+			var sb = YearlyEventsDictionary.Any(ev => ev.Value.DayOff && Math.Abs(date.Subtract(ev.Value.Date(date.Year - 1) ?? DateTime.MaxValue).Days) <= 1);
 
-            return p || m || w || a || s;
+			return p || m || w || a || sf || sb;
         }
 
 		///-------------------------------------------------------------------------------------------------
